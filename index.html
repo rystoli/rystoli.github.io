@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<!--
+	Read Only by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Ryan M Stolier | New York University</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>
+					<h1 id="logo"><a href="#">Ryan M. Stolier</a></h1>
+					
+				</header>
+				<nav id="nav">
+					<ul>
+					    <li><a href="CV-Stolier_3_8_17.pdf">CV</a></li>
+						<li><a href="#one" class="active">About</a></li>
+						<li><a href="#two">RyMVPA</a></li>
+					</ul>
+				</nav>
+				<footer>
+				<a href="https://scholar.google.com/citations?user=nDW764QAAAAJ&hl=en" class="icon fa-google"></a><a href="https://scholar.google.com/citations?user=nDW764QAAAAJ&hl=en">   Scholar</a>
+					<ul class="icons">
+						<li><a href="https://twitter.com/rystoli" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://github.com/rystoli/RyMVPA" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="mailto:rystoli@nyu.edu" class="icon fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="container">
+
+										<h2>Ryan M Stolier</h2>
+										<h4>New York University</h4><br>
+
+									<p>Ryan Stolier is a doctoral student in the Department of Psychology at New York University, where he works primarily with Dr. Jonathan Freeman. He applies behavioral and neuroimaging methods to study how we represent social perceptions and concepts. His research primarily concerns how bottom-up perceptual (e.g., face perception) and top-down social factors (e.g., stereotyping, prejudice) influence our social categorizations and trait impressions of others. </p>
+									
+									<h4>Selected publications:</h4>
+									Stolier, R.M. & Freeman, J.B. (2016). <a href="http://psych.nyu.edu/freemanlab/pubs/2016_Stolier&Freeman.pdf">Neural pattern similarity reveals the <br>inherent intersection of social categories</a>. <i>Nature Neuroscience</i>.<br><br>
+									Stolier, R.M. & Freeman, J.B. (2016). <a href="http://psych.nyu.edu/freemanlab/pubs/2016_Stolier_Freeman_PsychInquiry.pdf">Functional and temporal considerations <br>for top-down influences in social perception</a>. <i>Psychological Inquiry</i>.<br><br>
+									<h4>Selected media coverage:</h4>
+
+<a href="https://www.washingtonpost.com/news/speaking-of-science/wp/2016/05/02/scientists-show-how-we-start-stereotyping-the-moment-we-see-a-face/">Scientists Show How We Start Stereotyping the Moment We See a Face</a><br>
+<i>Washington Post</i>, May 2, 2016 <br><br>
+
+<a href="https://www.facebook.com/jfreemanlab/videos/1640920019463267">Through the Wormhole with Morgan Freeman, Season Premiere: 'Are We all Bigots?'</a><br>
+<i>Science Channel</i>, April 29, 2015 <br><br>
+See sidebar links for more access to my research, as well as our <a href="http://psych.nyu.edu/freemanlab/">lab site</a>.
+
+								</div>
+							</section>
+
+						<!-- Two -->
+							<section id="two">
+								<div class="container">
+									<h3>RyMVPA</h3>
+									<h4>What? Why? </h4>
+
+<a href="https://github.com/rystoli/RyMVPA">RyMVPA</a> is an unnecessarily eponymous wrapper for <a href="http://www.pymvpa.org/">PyMVPA</a>. PyMVPA is a wonderful module for MVPA, multi-variate pattern analysis, of data - especially, in my case, fMRI data. In RyMVPA, many of PyMVPA's pattern analysis tools are available in single function commands to make the magic of PyMVPA less verbose. For instance, you can run an entire searchlight multiple regression Representational Similarity Analysis with a little this:<br><br>
+<code>slRSA_m_nSs( data, target_DM, [control_DM_1 ... control_DM_k] )</code><br><br>
+Well, that was easier, right? 
+<br><br>
+As well, with multiple regression RSA as an example, it also comes with many additional methods and toys you may find useful. <br><br>
+
+<i class="icon fa-check-square-o"></i>   Want to perform basic MVPA Classification and RSA analyses in single lines of code?
+<br>
+<i class="icon fa-check-square-o"></i>   Want to be able to do this for single subjects, entire study datasets, in whole-brain searchlights or ROIs?
+<br>
+<i class="icon fa-check-square-o"></i>   Want to perform RSA only including certain cells of the DM? 
+<br>
+<i class="icon fa-check-square-o"></i>   Want to see if between-subject individual differences or trial-by-trial covariates relate to the neural similarity of certain conditions? 
+<br>
+<i class="icon fa-check-square-o"></i>   Want to statistically compare specific cells of a DM?
+<br>
+<i class="icon fa-check-square-o"></i>   Want to train your classifier on certain targets, and test on others? 
+<br><br>To install, it's pretty easy.
+<br><br>
+1. Download or clone the repository: <a href="https://github.com/rystoli/RyMVPA">https://github.com/rystoli/RyMVPA</a>
+<br><br>
+2. Use <a href="https://pypi.python.org/pypi/pip">pip</a>!<br><br>
+<code>pip install [path to RyMVPA directory]</code>
+<br><br>
+3. Then import this as a whole in Python:
+<br><br>
+<code>from rymvpa import *</code>
+<br><br>
+4. Get those 48-hour long analyses started quickly!
+<br><br>
+Also, the important thing is your data is already prepped. PyMVPA datasets with targets, chunks, per usual. A typical PyMVPA dataset is the data type to be entered into single dataset functions. Multiple dataset functions refer to 'datadicts', which is simply a dictionary where the keys are dataset names (e.g., Subject ID), and values are PyMVPA datasets per usual.
+<br><br>
+Enjoy!
+<br><br>
+*DISCLAIMER: Please don't hurt me. Oh, and again, very unofficial, maybe check code to make sure it's doing what you want. 😅  You will find the code is very clean and organized, so this is easy to do!
+<br><br>
+And, thanks, Zach Ingbretsen, for much help and contribution!
+
+								</div>
+							</section>
+
+						
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li>&copy; Ryan M Stolier. All rights reserved?</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollzer.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
