@@ -1555,7 +1555,7 @@
 	}
 
 	body, input, select, textarea {
-		color: #666;
+		color: #555;
 		font-family: "Lato", sans-serif;
 		font-size: 16pt;
 		font-weight: 400;
@@ -1567,8 +1567,8 @@
 		-webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-		border-bottom: solid 1px #e4e4e4;
-		color: inherit;
+		border-bottom: none;
+		color: #4b8777;
 		text-decoration: none;
 	}
 
