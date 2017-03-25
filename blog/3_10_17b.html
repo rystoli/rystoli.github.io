@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<!--
+	Read Only by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Ryan M Stolier | New York University</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<link rel="stylesheet" href="../assets/ai/css/academicons.css"/>
+		<link rel="icon" type="image/png" href="../images/favicon.png" sizes="32x32">
+
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<span class="image avatar"><img src="../images/avatar.jpg" alt="" /></span>
+					<h1 id="logo">Ryan M. Stolier</h1>
+					
+				</header>
+				<nav id="nav">
+					<ul>
+						<li><a href="../index.html" class="active">Back</a></li>
+					</ul>
+				</nav>
+				<footer>
+					<ul class="icons">
+					<li><font size="6"><a href="CV-Stolier_3_8_17.pdf">CV</a></font></li>
+					<li><a href="https://scholar.google.com/citations?user=nDW764QAAAAJ&hl=en" class="ai ai-google-scholar-square ai-2x"></a></li>
+						<li><a href="https://twitter.com/rystoli" class="icon fa-twitter fa-2x"><span class="label">Twitter</span></a></li>
+						<li><a href="https://github.com/rystoli/RyMVPA" class="icon fa-github fa-2x"><span class="label">Github</span></a></li>
+						<li><a href="mailto:rystoli@nyu.edu" class="icon fa-envelope fa-2x"><span class="label">Email</span></a></li>
+					</ul>
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="container">
+								<a href="../index.html">Back to start</a><br><br>
+<h2>Facegen SDK .FG file feature export to CSV</h2>
+
+<p>Facegen allows the exporting of feature values across a wide range of facial features, including sex, race, age, symmetry, averageness per race, and many many shape and pigment cues. These can be used for many things, such as analyzing their relations to behavior (e.g., <a href="http://www.sciencedirect.com/science/article/pii/S0022103112001758">Colleen Carpinella and Kerri Johnson found relations in gender cues to politician preferences, 2013</a>). You can also build visual models of face similarity based on cues, or descriptively explore cues and associations of various faces. These faces can be ones you created, or ones you scanned into the FaceGen Modeller software (e.g., used by Carpinella &amp; Johnson, 2013). Pretty cool.</p><p>Anyhow, I had a brain hemorrhage trying to figure this out, so, here's some easy code you can implement on your FaceGen files (.fg) to extract all of these features, and plop them into a CSV.&nbsp;</p><p>Requirements:</p><ul><li>FaceGen Modeller</li><li>The newer FaceGen SDK</li><li>Your .fg files in one directory</li></ul><p><a href="https://github.com/rystoli/psychtools/blob/master/fg_export.txt">Script below with notes here</a>.</p><p>To extract the .FG feature values, in the command line, from the unzipped SDK folder, navigate to /bin/win/vs10/64/release/ or your correct bits/vs version, which should have something like fg3.exe in it. Then, from command line, these commands each print out one txt file per parameter per fg file (assuming the FG files are in the same current folder you are in, so move them there, or change the filepaths appropriately):</p><p>First, in batch:</p>
+<hr>
+<p>Shape:</p>
+<pre><code>for %F in (*.fg) do (for /L %G in (0,1,60) do fg3 controls %F sliderShape symm %G &gt; %F%GShape.txt)</code></pre><p>Pigment:</p>
+<pre><code>for %F in (*.fg) do (for /L %G in (0,1,35) do fg3 controls %F sliderColor %G &gt; %F%GColor.txt)</code></pre><p>Gender:</p>
+<pre><code>for %F in (*.fg) do fg3 controls %F gender shape &gt; %Fgendershape.txt`
+for %F in (*.fg) do fg3 controls %F gender color &gt; %Fgendercolor.txt</code></pre><p>Race:</p>
+<pre><code>for %F in (*.fg) do fg3 controls %F race all african &gt; %FRaceAFA.txt
+for %F in (*.fg) do fg3 controls %F race all european &gt; %FRaceAE.txt
+for %F in (*.fg) do fg3 controls %F race all eastAsian &gt; %FRaceAEA.txt
+for %F in (*.fg) do fg3 controls %F race all southAsian &gt; %FRaceASA.txt
+for %F in (*.fg) do fg3 controls %F race african european &gt; %FRaceAFE.txt
+for %F in (*.fg) do fg3 controls %F race african eastAsian &gt; %FRaceAFEA.txt
+for %F in (*.fg) do fg3 controls %F race african southAsian &gt; %FRaceAFSA.txt
+for %F in (*.fg) do fg3 controls %F race european eastAsian &gt; %FRaceEEA.txt
+for %F in (*.fg) do fg3 controls %F race european southAsian &gt; %FRaceESA.txt
+for %F in (*.fg) do fg3 controls %F race eastAsian southAsian &gt; %FRaceEASA.txt</code></pre><p>Age:</p>
+<pre><code>for %F in (*.fg) do fg3 controls %F age shape &gt; %Fageshape.txt
+for %F in (*.fg) do fg3 controls %F age color &gt; %Fagecolor.txt</code></pre><p>Symmetry:</p>
+<pre><code>for %F in (*.fg) do fg3 controls %F asymmetry &gt; %Fasymmetry.txt</code></pre><p>Caricature/averageness:</p>
+<pre><code>for %F in (*.fg) do fg3 controls %F caricature all shape &gt; %Fallcarshape.txt
+for %F in (*.fg) do fg3 controls %F caricature all color &gt; %Fallcarcolor.txt
+for %F in (*.fg) do fg3 controls %F caricature african shape &gt; %Fafricancarshape.txt
+for %F in (*.fg) do fg3 controls %F caricature african color &gt; %Fafricancarcolor.txt
+for %F in (*.fg) do fg3 controls %F caricature european shape &gt; %Feuropeancarshape.txt
+for %F in (*.fg) do fg3 controls %F caricature european color &gt; %Feuropeancarcolor.txt
+for %F in (*.fg) do fg3 controls %F caricature eastAsian shape &gt; %FeastAsiancarshape.txt
+for %F in (*.fg) do fg3 controls %F caricature eastAsian color &gt; %FeastAsiancarcolor.txt
+for %F in (*.fg) do fg3 controls %F caricature southAsian shape &gt; %FsouthAsiancarshape.txt
+for %F in (*.fg) do fg3 controls %F caricature southAsian color &gt; %FsouthAsiancarcolor.txt</code></pre><hr>
+<p>That is all you need, but for some bash &amp; python to quick aggregate it into a CSV...</p>
+<p>Second, in Bash, this concats all cues per face (.fg file) into a txt per face:</p>
+<hr>
+<pre><code>for f in *.fg; do cat ${s}*.txt &gt; ${s:0:${#s}-3}_all.txt; done</code></pre><hr>
+<p>Third, with all of the txts per fg file in one folder, run this python code to reorganize and clean each, then make a csv out of the txts:</p>
+<hr>
+<pre><code>import numpy
+import glob as glob
+
+paths = glob.glob("*.txt")
+files = [paths[i].split('/')[-1] for i,path in enumerate(paths)]
+
+for file_i,fname in enumerate(files):
+    lines = open(fname).read().splitlines()
+    lines = [i for i in lines if i != '']
+    linesplit = [i.split(' ') for i in lines]
+    for i,j in enumerate(linesplit):
+        if j[-1] == 'years': linesplit[i] = linesplit[i][0:-1]
+        elif j[-1][0] == '(': linesplit[i][-1] = linesplit[i][-1][1:-1]
+    linesdata = [["".join(i[:-1]),float(i[-1])] for i in linesplit]
+    linesfinal = [[fname.split(".")[0],i[0],i[1]] for i in linesdata]
+    numpy.savetxt("%s.csv" % (fname.split(".")[0]), linesfinal, delimiter=",", fmt='%s')</code></pre><hr>
+<p>Last, again in Bash, aggregate the CSVs into one:</p>
+<hr>
+<pre><code>cat *.csv &gt; all_fgstats.csv</code></pre><hr>
+<p>And voila, there you go.</p>
+
+								</div>
+							</section>
+				
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li>&copy; Ryan M Stolier. All rights reserved?</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollzer.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

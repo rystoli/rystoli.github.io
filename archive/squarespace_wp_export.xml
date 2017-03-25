@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wp="http://wordpress.org/export/1.2/">
+  <channel>
+    <title>Ryan M Stolier</title>
+    <link>https://www.rystolier.com</link>
+    <pubDate>Sat, 05 Nov 2016 05:33:18 +0000</pubDate>
+    <description>New York University</description>
+    <language>en-US</language>
+    <wp:wxr_version>1.2</wp:wxr_version>
+    <wp:author>
+      <wp:author_id>1282036217</wp:author_id>
+      <wp:author_login>ryan.m.stolier@gmail.com</wp:author_login>
+      <wp:author_email>ryan.m.stolier@gmail.com</wp:author_email>
+      <wp:author_display_name><![CDATA[Ryan Stolier]]></wp:author_display_name>
+      <wp:author_first_name><![CDATA[Ryan]]></wp:author_first_name>
+      <wp:author_last_name><![CDATA[Stolier]]></wp:author_last_name>
+    </wp:author>
+    <wp:category>
+      <wp:cat_name><![CDATA[Personal - null]]></wp:cat_name>
+      <wp:category_nicename>Personal-null</wp:category_nicename>
+      <wp:category_parent />
+    </wp:category>
+    <item>
+      <link>/about/</link>
+      <title>About</title>
+      <pubDate>Tue, 14 Mar 2017 05:08:32 +0000</pubDate>
+      <content:encoded><![CDATA[&nbsp;
+  
+      <img src="https://static1.squarespace.com/static/581d6f1ef5e231b25f8a7506/t/58882a2703596e478e7de714/1485318716849/?format=original" alt=""/>
+  
+
+<h1>How does bias shape our perceptions of others?</h1><p><span style="font-size:14.6667px">Ryan Stolier is a doctoral student in the Department of Psychology at New York University, where he works primarily with Dr. Jonathan Freeman. He applies behavioral and neuroimaging methods to study how we represent social perceptions and concepts. His research primarily concerns how bottom-up perceptual (e.g., face perception) and top-down social factors (e.g., stereotyping, prejudice) influence our social categorizations and trait impressions of others.&nbsp;</span></p><p><strong>Selected publications</strong>:</p><p>Stolier, R.M. &amp; Freeman, J.B. (2016).<a target="_blank" href="http://psych.nyu.edu/freemanlab/pubs/2016_Stolier&amp;Freeman.pdf">&nbsp;Neural pattern similarity reveals the inherent intersection of social categories</a>.&nbsp;<em>Nature Neuroscience</em>.</p><p>Stolier, R.M. &amp; Freeman, J.B. (2016).&nbsp;<a target="_blank" href="http://psych.nyu.edu/freemanlab/pubs/2016_Stolier_Freeman_PsychInquiry.pdf">Functional and temporal considerations for top-down influences in social perception</a>.&nbsp;<em>Psychological Inquiry</em>.</p><p><strong>Selected media coverage</strong>:</p><p><a target="_blank" href="https://www.washingtonpost.com/news/speaking-of-science/wp/2016/05/02/scientists-show-how-we-start-stereotyping-the-moment-we-see-a-face/">Scientists Show How We Start Stereotyping the Moment We See a Face</a><br /><em>Washington Post</em>, May 2, 2016&nbsp;</p><p><a target="_blank" href="https://www.facebook.com/jfreemanlab/videos/1640920019463267">Through the Wormhole with Morgan Freeman, Season Premiere: 'Are We all Bigots?'</a><br /><em>Science Channel</em>, April 29, 2015</p><p><em>See more information about his research below, as well as PyMVPA wrappers via GitHub:</em></p>&nbsp;&nbsp;
+<div class="sqs-block-button-container--right">
+	<a href="/s/CV-Stolier_3_8_17-dp8t.pdf" class="sqs-block-button-element--small sqs-block-button-element" >CV</a>
+</div>
+<div class="sqs-block-button-container--center">
+	<a href="https://scholar.google.com/citations?user=nDW764QAAAAJ&hl=en" class="sqs-block-button-element--small sqs-block-button-element" >Google Scholar</a>
+</div>
+<div class="sqs-block-button-container--left">
+	<a href="http://psych.nyu.edu/freemanlab/" class="sqs-block-button-element--small sqs-block-button-element" >Lab site</a>
+</div>]]></content:encoded>
+      <wp:post_name>about</wp:post_name>
+      <wp:post_type>page</wp:post_type>
+      <wp:post_id>0</wp:post_id>
+      <wp:status>publish</wp:status>
+    </item>
+    <item>
+      <title>Data science shlacktivism compendium</title>
+      <link>/blog/2017/1/25/data-science-shlacktivism-compendium</link>
+      <content:encoded><![CDATA[<p>I have decided to aggregate opportunities for research and science types to volunteer their skill sets for the greater good, including general pro-social and political causes.</p><p>First, <a href="http://blog.datalook.io/definitive-guide-data-science-good/">here's a nice blog post with some details</a>&nbsp;from DataLook, a blog about data science social change.</p><p>Next, nothing too detailed, but concise is nice, so here is my tentative list...</p><p>Version 1/24/17:</p><ul style="margin-left:40px"><li><a href="http://www.datakind.org/">DataKind</a>: Has short and long-term opportunities that are quite variable. Primary chapters in certain locations (e.g., DC, SF), but of course much of this is remote, and there are certain projects/meetings in NYC. From some <a href="https://www.quora.com/What-is-DataKind-What-do-they-do-How-can-I-volunteering-if-I-dont-have-any-experience-and-what-would-it-benefit-me">Q&amp;A here</a>: "DataKind brings high-impact organizations together with data scientists to use data science in the service of humanity. We bring together top data scientists with leading social change organizations to collaborate on cutting-edge analytics and advanced algorithms to maximize social impact. Our programs build upon one another and are designed to meet organizations where they are. From evening or weekend events to multi-month projects, all are designed to provide social organizations with the pro bono data science innovation team they need to tackle critical humanitarian issues in the fields of education, poverty, health, human rights, the environment and cities. Go to the website to see the work DataKind has done so far."</li><li><a href="http://www.sumall.org/careers/">SumAll</a>: From their site: "We conduct analytics projects with organizations and changemakers who are pursuing common social change objectives. We are building our work on a methodology of transformational change through data, that continually searches for common-good and best practice. If you are looking to use your skills to solve big problems and work on specific missions together with amazing, like-minded people, we want to hear from you."</li><li><a href="https://www.codeforamerica.org/">Code for America</a>:&nbsp;Has larger positions, and local volunteer coding groups. From <a href="https://en.wikipedia.org/wiki/Code_for_America">wiki</a>: "Code for America is a non-partisan, non-political 501(c)(3) organization founded in 2009 to address the widening gap between the public and private sectors in their effective use of technology and design. According to its website, the organization works with residents and governments in solving community problems.&nbsp;The organization began by enlisting technology and design professionals to work with city governments in the United States in order to build open-source applications and promote openness, participation, and efficiency in government, and has grown into a cross-sector network of practitioners of civic innovation and a platform for "civic hacking.""</li><li><a href="https://www.drivendata.org/about/">DrivenData</a>: Pro-social competition site, "At DrivenData, we want to bring cutting-edge practices in data science and crowdsourcing to some of the world's biggest social challenges and the organizations taking them on. We host online challenges, usually lasting 2-3 months, where a global community of data scientists competes to come up with the best statistical model for difficult predictive problems that make a difference."</li><li><a href="http://community.amstat.org/statisticswithoutborders/home">Statisticians Without Borders</a>: From <a href="https://en.wikipedia.org/wiki/Statistics_Without_Borders">wiki</a>: "Statistics Without Borders (SWB) is an organization of volunteer statisticians that provides pro bono statistical consulting and assistance to organizations or governments to help deal with health issues. SWB is sponsored by the American Statistical Association. Their goal is to help international health initiatives and projects be delivered more effectively through better use of statistics."</li><li><a href="http://www.bayesimpact.org/">Bayes Impact</a>: Y-combinator group, from site:&nbsp;We are a group of full-time data scientists, engineers, and academics who believe data science can be used to solve the world's most ambitious problems. We are a group of pragmatists who have seen first-hand how data science can solve industry problems at scale. We are a group of skeptics who realize that meaningful change requires dedication, focus and full-time work over long time periods, and that developing an algorithm is only the tip of the iceberg. We are a group of idealists who dedicate our lives to build operational solutions to social problems by building software for governments and non-profit organizations."</li><li><a href="https://www.meetup.com/opendatascience/">ODSFP</a> (Persontyle Open Data Science Fellows Program): From site: "Open Data Science Fellows Program (ODSFP) is for all of you who want to learn and apply data science. It is a collaborative platform to get together to learn data science, to solve meaningful open data problems, hang out, ask questions, share ideas and have a great time. This is a not-for-profit community program dedicated to the dissemination of data science and to promote open data for social good, organized by Persontyle School of Data Science." They have a twitter @ODSFP</li><li><a href="http://insight-us.org/">insightus</a>: From site: "insightus is leveling the playing field, by bringing outside-the-box Data Science to caring communities and progressive change activists, so that they can meet and beat special interests and ne'er-do-wells on their own turf in the 21st Century. We are a 100% non-profit organization: a band of brothers and sisters with crazy skills in Data Science, rolling up our sleeves to help out — to help make all our kids' world a better place tomorrow. We're taking a byte out of crime, and injustice, and incivility, and wanton greed."</li><li>Edgeflip: Looks like it's down, but was run by Rayid Ghani at Northwestern for pro-social change data science... will dig around more.</li><li><a href="http://scaan.net/">ScAAN</a>&nbsp;(Scientist Action and Advocacy Network): NYC based group. From site: "We are a New York-based group of scientists who partner with partisan and non-partisan organizations that are creating positive social change."</li></ul><p>Let me know any additional options and I'll update!</p>]]></content:encoded>
+      <excerpt:encoded />
+      <wp:post_name>2017/1/25/data-science-shlacktivism-compendium</wp:post_name>
+      <wp:post_type>post</wp:post_type>
+      <wp:post_id>1</wp:post_id>
+      <wp:status>publish</wp:status>
+      <pubDate>Wed, 25 Jan 2017 06:00:46 +0000</pubDate>
+      <wp:post_date>2017-01-25 06:00:46</wp:post_date>
+      <wp:post_date_gmt>2017-01-25 06:00:46</wp:post_date_gmt>
+      <category domain="post_tag" nicename="politics"><![CDATA[politics]]></category>
+      <category domain="post_tag" nicename="apocalypse"><![CDATA[apocalypse]]></category>
+      <category domain="post_tag" nicename="data-science"><![CDATA[data science]]></category>
+      <category domain="post_tag" nicename="charity"><![CDATA[charity]]></category>
+      <category domain="post_tag" nicename="probono"><![CDATA[probono]]></category>
+      <category domain="post_tag" nicename="activism"><![CDATA[activism]]></category>
+      <dc:creator>ryan.m.stolier@gmail.com</dc:creator>
+      <wp:comment_status>open</wp:comment_status>
+    </item>
+    <item>
+      <title>Sorting out these trying times (study of modern conservatism)</title>
+      <link>/blog/2017/2/9/sorting-out-these-trying-times</link>
+      <content:encoded><![CDATA[<p>Per, likely, usual, this is not so much a blog post as a collection of information I would like to keep organized and share. As a liberal, I personally find many of the liberal reductionisms of sharp trends in the right wing unconvincing, i.e., 'Trumpism'. E.g., their motifs can be reduced to ignorance, greed, tribalism. And even where those motifs are real, understanding their source as intentional and nefarious seems unconvincing as well. I want to get the whole picture, the rational, the misguided, the history of it all... so I have recently set out to consume less hyper-partisan information explaining the current psychology of the right, and will collect it here. I will put concise notes by everything to give a bird's eye view.</p><p>This will be ongoing, and continue to be updated as I make progress. Tips appreciated.</p><p><strong>Books</strong>:</p><ul><li><strong>1/4/17: 'Angry White Men' by Michael Kimmel</strong>: <a href="http://www.nytimes.com/2013/11/24/books/review/angry-white-men-by-michael-kimmel.html">NYT review</a>. Concerns causes, description, and appraisal of the current psychology of white men, especially on the right, in modern society. It does this tying together many modern phenomena, from anti-feminism to school shootings, under a general concept of 'aggrieved entitlement', where white men do not understand their privilege and feel grief and anger at its slow diminishment. Michael Kimmel is a sociologist. Uses a lot of data, with a lot of citations, which I appreciate and enjoy. It had an impressive amount of empathy and compassion towards 'angry white male' psychology, acknowledging when it is treated unfairly at times, and acknowledging some of its precursors, despite that overall the book errs on the side of hyper-liberalism on its opinionated side. Fun, easy read.&nbsp;</li><li><strong>2/9/17: 'The Unwinding: An inner history of the new America' by George Packer</strong>: <a href="http://www.nytimes.com/2013/05/29/books/the-unwinding-by-george-packer.html">NYT review</a>. Incredible, worthy of its awards and reviews. Very unique book in form (see NYT review). Tells the story of how we have gotten to modern 2017 America, from many corners of our story, being the lives of rural Americans to politicians to Silicon Valley to the media, in the form of several spread out narrative biographical stories, with the likes of Andrew Breitbart, Newt Gingrich, Oprah, Peter Thiel, and more. Non-partisan, beautiful non-fiction. Paints a nuanced,&nbsp;picture of a perfect storm that brought us here without invoking any blame.</li></ul><p><strong>Media</strong>:</p><p>This is a bit different. These are media outlets I follow to keep my finger on the other sides pulse. I will note below if I also think any of these sources provide compelling arguments that should be taken seriously at times, which is a different beat than the pulse we usually track as liberals.&nbsp;</p><ul><li><a href="http://www.breitbart.com/"><strong>Breitbart News</strong></a>: Duh. Really read the articles. Remember, some are opinion pieces, some are reporting. Set your expectations. You will be surprised by the amount of factual reporting, that through framing or omission rather than mendacity misleads.</li><li><a href="http://www.dailywire.com/"><strong>The Daily Wire</strong></a>: I have found this, and its founder <a href="https://twitter.com/benshapiro">Ben Shapiro</a> to be a good source for the more rational conservative pulse at the moment, and an amazing source for calling out lies and failures due to liberal bias on our end - which certainly exist. Though blind eyes and double standards often get in the way, they have been critical of many conservative biases as well.</li></ul><p><strong>Childhood friends from the south</strong>:</p><p>Just kidding. But, seriously. You should(n't) see my facebook feed.</p>]]></content:encoded>
+      <excerpt:encoded />
+      <wp:post_name>2017/2/9/sorting-out-these-trying-times</wp:post_name>
+      <wp:post_type>post</wp:post_type>
+      <wp:post_id>2</wp:post_id>
+      <wp:status>publish</wp:status>
+      <pubDate>Thu, 09 Feb 2017 20:44:38 +0000</pubDate>
+      <wp:post_date>2017-02-09 20:44:38</wp:post_date>
+      <wp:post_date_gmt>2017-02-09 20:44:38</wp:post_date_gmt>
+      <dc:creator>ryan.m.stolier@gmail.com</dc:creator>
+      <wp:comment_status>closed</wp:comment_status>
+    </item>
+    <item>
+      <title>Cluster threshold corrections in PyMVPA with GroupClusterThreshold(), via Stelzer et al. 2013: NN clustering method</title>
+      <link>/blog/2017/2/10/cluster-threshold-corrections-in-pymvpa-with-groupclusterthreshold-via-stelzer-et-al-2013</link>
+      <content:encoded><![CDATA[<p>I have been teasing apart a PyMVPA multiple comparison cluster correction technique (based on <a href="https://www.ncbi.nlm.nih.gov/pubmed/23041526">Stelzer, Chen, &amp; Turner, 2013</a>), trying to get it to flexibly do a few things. Optimally, I'd like to get it to do everything necessary to be implemented as more concisely described <a href="http://mvpa.blogspot.com/2012/10/permuting-searchlight-maps-stelzer.html">here by Jo Etzel</a>. I am trying to tackle a few things, so I will add them as I go, below. Not an expert on the stats here, just trying to find pressure points in the code to tinker some parameters critical to the algorithm. So any advice/corrections to this appreciated!&nbsp;</p><p>First, a few resources/posts/threads, starring very helpful ones:</p><ul><li>PyMVPA methods [<a href="http://www.pymvpa.org/generated/mvpa2.algorithms.group_clusterthr.html">1</a>, <a href="http://www.pymvpa.org/generated/mvpa2.algorithms.group_clusterthr.GroupClusterThreshold.html">2</a>]*</li><li><a href="http://mvpa.blogspot.com/2012/10/permuting-searchlight-maps-stelzer.html">Jo Etzel's concise description of algorithm</a>*</li><li><a href="http://mvpa.blogspot.com/2013/06/mvpa-permutation-schemes-permutation.html">Jo Etzel discussion of group level permutation testing with cross-validation</a>*</li><li><a href="https://lists.alioth.debian.org/pipermail/pkg-exppsy-pymvpa/2015q3/003200.html">PyMVPA listserv thread</a> (<a href="https://lists.alioth.debian.org/pipermail/pkg-exppsy-pymvpa/2015q3/003202.html">quickest implementation example</a>*)</li><li><a href="https://lists.alioth.debian.org/pipermail/pkg-exppsy-pymvpa/2015q3/003204.html">Links to larger example/code</a></li><li><a href="https://www.ncbi.nlm.nih.gov/pubmed/23041526">Stelzer, Chen, &amp; Turner, 2013</a></li></ul><h3><strong>2/10/17: Nearest-neighbor clustering method</strong></h3><p style="margin-left:40px">Researchers of course ab(use) the ability to use different methods for determining whether two voxels are contiguous and part of the same cluster, e.g., 'NN level' in AFNI. The nearest-neighbor method can consider voxels contiguous if they touch by either faces, edges, or corners. It seems GroupClusterThreshold() defaults to just faces. Can we change this?</p><p style="margin-left:40px">It looks like GroupClusterThreshold() uses a scipy method for determining unique clusters, <a href="https://docs.scipy.org/doc/scipy-0.16.0/reference/generated/scipy.ndimage.measurements.label.html">ndimage.measurements.label</a>.&nbsp;This function takes two arguments. First,&nbsp;input boolean data (array) in which it identifies clusters. In our case, this is a boolean version of your brain map with super-threshold voxels set to 1, sub- to 0. Second, it takes a 'structure' argument which can be fed a sample array to redefine how it labels continuous data points (see doc). This is where it seems we can shift the NN level.</p><p style="margin-left:40px">E.g., to set NN = sides, edges, corners, we can just feed measurements.label in the GroupClusterThreshold() function a second argument with a more flexible structure array in 3 dimensions, np.ones([3,3,3]). So, you can replace calls, such as:&nbsp;</p><p><code>measurements.label(map_)</code></p>
+<p style="margin-left:40px">with the more flexible structure array:</p><p><code>measurements.label( map_, structure = np.ones([3,3,3]) )</code></p>
+<p style="margin-left:40px">But make sure to do so in both calls for the permuted data and your result dataset.</p><p style="margin-left:40px">To clarify, the structure array is basically a hard example of what contiguities count, e.g., the ones array about is creating a cube (with these three slices), with everything marked as a 1 indicating which elements are contiguous and count as a cluster.</p><pre><code>structure = np.array([
+   [[ 1.,  1.,  1.],
+    [ 1.,  1.,  1.],
+    [ 1.,  1.,  1.]],
+
+   [[ 1.,  1.,  1.],
+    [ 1.,  1.,  1.],
+    [ 1.,  1.,  1.]],
+
+   [[ 1.,  1.,  1.],
+    [ 1.,  1.,  1.],
+    [ 1.,  1.,  1.]]])</code></pre><p style="margin-left:40px">You can place 0s to indicate what should or should not count as contiguous. See the measurements.label doc too.</p><p style="margin-left:40px">Again, I lack any expertise in these algorithms and stats... but theoretically, I think that since the algorithm empirically derives significance values, as long as the same NN level is used in both null data and your result dataset, the <em>p</em> value is accurate given the NN level. ...Right? 😅</p><p style="margin-left:40px">Edit: 2/27/17</p><p style="margin-left:40px">I created an edited version of GroupClusterThreshold() in RyMVPA that uses this more flexible nearest neighbor method, <a href="https://github.com/rystoli/RyMVPA/blob/master/rymvpa/group_clusterthr_rymvpa.py">'GroupClusterThreshold_NN3'</a>. Will come as a more flexible form of this method soon.</p>]]></content:encoded>
+      <excerpt:encoded />
+      <wp:post_name>2017/2/10/cluster-threshold-corrections-in-pymvpa-with-groupclusterthreshold-via-stelzer-et-al-2013</wp:post_name>
+      <wp:post_type>post</wp:post_type>
+      <wp:post_id>3</wp:post_id>
+      <wp:status>publish</wp:status>
+      <pubDate>Fri, 10 Feb 2017 07:40:22 +0000</pubDate>
+      <wp:post_date>2017-02-10 07:40:22</wp:post_date>
+      <wp:post_date_gmt>2017-02-10 07:40:22</wp:post_date_gmt>
+      <category domain="post_tag" nicename="pymvpa"><![CDATA[pymvpa]]></category>
+      <category domain="post_tag" nicename="significance-testing"><![CDATA[significance testing]]></category>
+      <category domain="post_tag" nicename="fmri"><![CDATA[fmri]]></category>
+      <category domain="post_tag" nicename="groupclusterthreshold"><![CDATA[GroupClusterThreshold]]></category>
+      <category domain="post_tag" nicename="stelzer"><![CDATA[Stelzer]]></category>
+      <category domain="post_tag" nicename="rymvpa"><![CDATA[rymvpa]]></category>
+      <dc:creator>ryan.m.stolier@gmail.com</dc:creator>
+      <wp:comment_status>closed</wp:comment_status>
+    </item>
+    <item>
+      <title>Cluster threshold corrections in PyMVPA with GroupClusterThreshold(), via Stelzer et al. 2013: manual entry of cluster sizes</title>
+      <link>/blog/2017/2/27/cluster-threshold-corrections-in-pymvpa-with-groupclusterthreshold-via-stelzer-et-al-2013-manual-entry-of-cluster-sizes</link>
+      <content:encoded><![CDATA[<p>This is a continuation of a series of posts I am making on PyMVPA implementation of GroupClusterThreshold() and the permutation clustering algorithm by <a href="https://www.ncbi.nlm.nih.gov/pubmed/23041526">Stelzer et al. (2013)</a>.</p><p>At the end of this correction method, a distribution providing <em>p</em> values per cluster size is available. I simply wanted a way to ask for the <em>p</em> values corresponding to any cluster size I was curious about. This is a quick post logging a solution in the PyMVPA mailing list,&nbsp;provided <a href="http://lists.alioth.debian.org/pipermail/pkg-exppsy-pymvpa/2017q1/003565.html">here</a>.</p><p>Once you have trained the GroupClusterThreshold() object (say, here, as 'gct') on your data from the within-subject permutation test phase, you simply supply cluster sizes of interest (say, here, 40, 60, 80) to this method with the null distribution attribute as well:</p><p><code>cluster_probs_raw = GroupClusterThreshold._transform_to_pvals(np.array([40. 60, 80]), gct._null_cluster_sizes.astype('float'))</code></p>
+<p>Voila. Thanks to Richard Dinga for the tip.&nbsp;</p>]]></content:encoded>
+      <excerpt:encoded />
+      <wp:post_name>2017/2/27/cluster-threshold-corrections-in-pymvpa-with-groupclusterthreshold-via-stelzer-et-al-2013-manual-entry-of-cluster-sizes</wp:post_name>
+      <wp:post_type>post</wp:post_type>
+      <wp:post_id>4</wp:post_id>
+      <wp:status>publish</wp:status>
+      <pubDate>Tue, 28 Feb 2017 02:24:07 +0000</pubDate>
+      <wp:post_date>2017-02-28 02:24:07</wp:post_date>
+      <wp:post_date_gmt>2017-02-28 02:24:07</wp:post_date_gmt>
+      <category domain="post_tag" nicename="pymvpa"><![CDATA[pymvpa]]></category>
+      <category domain="post_tag" nicename="groupclusterthreshold"><![CDATA[groupclusterthreshold]]></category>
+      <category domain="post_tag" nicename="stelzer"><![CDATA[stelzer]]></category>
+      <category domain="post_tag" nicename="significance-testing"><![CDATA[significance testing]]></category>
+      <dc:creator>ryan.m.stolier@gmail.com</dc:creator>
+      <wp:comment_status>closed</wp:comment_status>
+    </item>
+    <item>
+      <title>Face stimulus and tool collection</title>
+      <link>/blog/2017/3/10/face-stimulus-and-tool-collection</link>
+      <content:encoded><![CDATA[<p>This is ongoing... <em>PLEASE</em> send any recommendations 😁</p><p>Without further ado, I present to you, the tardy solution to all of your suffering:</p><h1>The Face Stimulus and Tool Collection "blog" post</h1><p>Many of these have existed online in the past (I collected old collections as well, below), but many are filled now with dead links, and more importantly, horrible materials, e.g., real face stim that look faker than cg face stim.</p><p>Below, you'll find two main sections: face stim sets (all kinds), face stim tools (morph, averaging, real to cg scanning).&nbsp;</p><p>__________________________________________________________</p><h2>Face stimulus sets</h2><h3>Top quality /most prominent options:</h3><ul><li><a href="http://faculty.chicagobooth.edu/bernd.wittenbrink/cfd/index.html">The Chicago Face Database</a>: Neutral, angry, fearful, happy, black, white, asian, latino, age 17-65</li><li><a href="http://faces.mpib-berlin.mpg.de/">The Max Planck FACES Database</a>: "171 younger (n = 58), middle-aged (n = 56), and older (n = 57) women and men displaying each of six facial expressions: neutrality, sadness, disgust, fear, anger, and happiness. It comprises two sets of pictures per person and per facial expression, resulting in a total of 2,052 images."</li><li><a href="http://www.socsci.ru.nl:8180/RaFD2/RaFD?p=main">Radboud Faces Database</a>: "67 models (including Caucasian males and females, Caucasian children, both boys and girls, and Moroccan Dutch males) displaying 8 emotional expressions...&nbsp;Accordingly to the Facial Action Coding System, each model was trained to show the following expressions: Anger, disgust, fear, happiness, sadness, surprise, contempt, and neutral. Each emotion was shown with three different gaze directions and all pictures were taken from five camera angles simultaneously."</li><li><a href="https://www.macbrain.org/resources.htm">NimStim</a>:&nbsp;fearful, happy, sad, angry, surprised, calm, neutral, disgusted, white, black, latino, asian</li><li><a href="http://www.emotionlab.se/resources/kdef">Karolinska Directed Emotional Faces</a>: "Participants: 70 (35 males and 35 females). Age: m 25 years, ranging from 20 to 30 years. Expressions: 7 (neutral, happy, angry, afraid, disgusted, sad, surprised). Angles: 5 (-90, -45, 0, +45, +90 degrees: i.e. full left profile, half left profile, straight, half)"</li><li><strong>Center for Vital Longevity Database:</strong>&nbsp;Existed once upon a time, but the <a href="http://agingmind.utdallas.edu/facedb">link is dead</a>. Ask your colleagues! These have been widely used, and are solid. I think they vary plenty in race, gender and age. Let me know if you find them online.</li><li><a href="http://wilmabainbridge.com/facememorability2.html">10k US Adult Faces Database</a>: Large, high quality collection of naturalistic face images with plenty of data to go along. "This database contains 10,168 natural face photographs and several measures for 2,222 of the faces, including memorability scores, computer vision and psychology attributes, and landmark point annotations. The face photographs are JPEGs with 72 pixels/in resolution and 256-pixel height. The attribute data are stored in either MATLAB or Excel files. Landmark annotations are stored in TXT files. Any parts of the database may be used upon citation of the article and acceptance of the license agreement. To obtain the database, fill out the following form to get access information. The psychology attributes now include participant information, so you can now easily study subject-centric (versus item-centric) face and memory effects. The database now additionally includes a software tool that allows you to export custom image sets from the database for your own research, based on our collected attributes and memorability information. (Ex: You can now easily create a stimulus set of faces based on memorability, gender, race, emotion, attractiveness, etc)." (Thanks for the tip, Jin Goh!)</li><li><a href="http://tlab.princeton.edu/databases/">Todorov Lab stim</a>: Amazing sets of CG (FaceGen) face stim, along many different personality trait judgments (e.g., trustworthiness, dominance... etc.)</li></ul><h3>Other compendiums (beware of dead links, lots of bad quality, but lots of options and more details, especially if interesting in naturalistic stim and large numbers of stim):</h3><ul><li><a href="http://www.face-rec.org/databases/">Face-rec.org</a></li><li><a href="http://web.mit.edu/emeyers/www/face_databases.html">MIT.... someone named Meyers?</a></li><li>Here is a link to an old google spreadsheet I have: the <a href="https://docs.google.com/spreadsheets/d/1t6eZ2PQOe0XMZf6suesCeFqgQSjv1-CX5e2HqIU9PsY/edit?usp=sharing">Base Dataface</a>,&nbsp;with many details about them. In my opinion, TMI, but you might need that much info (it has info about quality, size, color, race, gender, angle, yada yada).&nbsp;</li><li><a href="http://www.psychwiki.com/wiki/Archives_of_data_and_stimuli">PsychWiki</a></li><li><a href="https://www.cogsci.nl/stimulus-sets">CogSci.nl</a></li><li><a href="http://emotion-research.net/wiki/Databases">Emotion-research.net</a>: also has multi-modal leads (voice + face, voice)</li></ul><h3>Dynamic face stim:</h3><ul dir="ltr"><li><a href="http://www.midss.org/content/cambridge-mindreading-face-voice-battery">Cambridge Mindreading Face-Voice battery</a>: face and voice dynamic emotion/mentalization stim. <a href="http://aspietests.org/facevoicefaces/index.php">Samples here online</a>! (Thanks, DJ Lick)</li></ul><p>__________________________________________________________</p><h2><strong>Face stim tools</strong></h2><h3>Face morphing/transforming and averaging tools:</h3><ul><li><a href="http://users.aber.ac.uk/bpt/jpsychomorph/">JPsychoMorph</a></li><li><a href="http://www.webmorph.org/">WebMorph</a></li><li><a href="http://www.fantamorph.com/index.html">FantaMorph</a></li><li><a href="http://www.faceresearch.org/">FaceResearch.org</a></li><li><a href="http://www.morpheussoftware.net/">Morpheus Photo Morpher</a></li><li><a href="https://www.quora.com/What-are-some-websites-where-you-can-morph-two-faces-together">Lots of other free/worse online tools</a>&nbsp;(just google)</li></ul><h3>Computer generation of faces/bodies:</h3><ul><li><a href="https://facegen.com/modeller.htm">FaceGen Modeller</a></li><li><a href="http://www.makehuman.org/">MakeHuman</a></li><li><a href="http://bodyvisualizer.com/">BodyVisualizer</a></li><li><a href="https://www.bodylabs.com/body-visualizer/">BodyLabs</a></li></ul><h3>Real face image to 3D computer generated face:</h3><ul><li><a href="https://facegen.com/modeller.htm">FaceGen Modeller</a>: Importantly, also allows extraction later of face parameters (e.g., features, such as nose width, skin pigment, or degree of race, age, or gender).</li><li><a href="http://www.123dapp.com/catch">123D Catch</a></li><li><a href="http://www.agisoft.com/downloads/installer/">Agisoft</a></li></ul><h3>Tools to make your life easier:</h3><ul><li>Photoshop: <a href="https://www.gimp.org/">GIMP</a> (open source alternative)&nbsp;may have these functions too, but what is most important here is ACTIONS. Learn how to use them, it is very easy, no learning curve. Like excel macros, you can record what you do, then batch perform that on a folder of images. Therefore, removal or change of backgrounds with the wand tools, or vignetting around the face with a marquee and feather, can be recorded once, then performed on your 200 stimuli. Or grayscaling. Or changing the image sizes. Or cropping. It will save you(r RAs) so much time. You can also do fancy stuff such as touching up morphs and replacing features yourself with tools such as the stamp and blur tools.</li><li><a href="https://autohotkey.com/download/">Autohotkey</a>: Also for automation. Very small learning curve here to. You can automate anything on your computer that follows a pattern (anything, as in, opening up paint, drawing a smiley face, then emailing it to your colleagues). This program allows you to script anything into the computer inputs - cursor and keyboard. So, this comes very handy with FaceGen - where you can automate making face stimuli in case you need a batch of them (hint: use tab and shift+tab to move around easily). Eg, with random-lock on, automate generating a new face, then moving the sliders to make a more masculine version of the face, then save it, then make a more feminine, then save, then make older, save, younger, save. It's beautiful and saves 100 RA hours. They also have a program that records what you do like photoshop and excel macros to help you write up the script.&nbsp;</li><li><a href="http://www.irfanview.com/main_download_engl.htm">Irfanview</a> (windows) / Preview (mac) : Has easy batch image conversions on windows</li></ul><p>__________________________________________________________</p><p>More recommendations appreciated!</p><h2> </h2><p> </p>]]></content:encoded>
+      <excerpt:encoded />
+      <wp:post_name>2017/3/10/face-stimulus-and-tool-collection</wp:post_name>
+      <wp:post_type>post</wp:post_type>
+      <wp:post_id>5</wp:post_id>
+      <wp:status>publish</wp:status>
+      <pubDate>Fri, 10 Mar 2017 07:44:40 +0000</pubDate>
+      <wp:post_date>2017-03-10 07:44:40</wp:post_date>
+      <wp:post_date_gmt>2017-03-10 07:44:40</wp:post_date_gmt>
+      <category domain="post_tag" nicename="faces"><![CDATA[faces]]></category>
+      <category domain="post_tag" nicename="stimuli"><![CDATA[stimuli]]></category>
+      <category domain="post_tag" nicename="tools"><![CDATA[tools]]></category>
+      <dc:creator>ryan.m.stolier@gmail.com</dc:creator>
+      <wp:comment_status>closed</wp:comment_status>
+    </item>
+    <item>
+      <title>Facegen SDK .FG file feature export to CSV</title>
+      <link>/blog/2017/3/10/facegen-fg-file-feature-export-to-csv</link>
+      <content:encoded><![CDATA[<p>Facegen allows the exporting of feature values across a wide range of facial features, including sex, race, age, symmetry, averageness per race, and many many shape and pigment cues. These can be used for many things, such as analyzing their relations to behavior (e.g., <a href="http://www.sciencedirect.com/science/article/pii/S0022103112001758">Colleen Carpinella and Kerri Johnson found relations in gender cues to politician preferences, 2013</a>). You can also build visual models of face similarity based on cues, or descriptively explore cues and associations of various faces. These faces can be ones you created, or ones you scanned into the FaceGen Modeller software (e.g., used by Carpinella &amp; Johnson, 2013). Pretty cool.</p><p>Anyhow, I had a brain hemorrhage trying to figure this out, so, here's some easy code you can implement on your FaceGen files (.fg) to extract all of these features, and plop them into a CSV.&nbsp;</p><p>Requirements:</p><ul><li>FaceGen Modeller</li><li>The newer FaceGen SDK</li><li>Your .fg files in one directory</li></ul><p><a href="https://github.com/rystoli/psychtools/blob/master/fg_export.txt">Script below with notes here</a>.</p><p>To extract the .FG feature values, in the command line, from the unzipped SDK folder, navigate to /bin/win/vs10/64/release/ or your correct bits/vs version, which should have something like fg3.exe in it. Then, from command line, these commands each print out one txt file per parameter per fg file (assuming the FG files are in the same current folder you are in, so move them there, or change the filepaths appropriately):</p><p>First, in batch:</p>
+<hr>
+<p>Shape:</p>
+<pre><code>for %F in (*.fg) do (for /L %G in (0,1,60) do fg3 controls %F sliderShape symm %G &gt; %F%GShape.txt)</code></pre><p>Pigment:</p>
+<pre><code>for %F in (*.fg) do (for /L %G in (0,1,35) do fg3 controls %F sliderColor %G &gt; %F%GColor.txt)</code></pre><p>Gender:</p>
+<pre><code>for %F in (*.fg) do fg3 controls %F gender shape &gt; %Fgendershape.txt`
+for %F in (*.fg) do fg3 controls %F gender color &gt; %Fgendercolor.txt</code></pre><p>Race:</p>
+<pre><code>for %F in (*.fg) do fg3 controls %F race all african &gt; %FRaceAFA.txt
+for %F in (*.fg) do fg3 controls %F race all european &gt; %FRaceAE.txt
+for %F in (*.fg) do fg3 controls %F race all eastAsian &gt; %FRaceAEA.txt
+for %F in (*.fg) do fg3 controls %F race all southAsian &gt; %FRaceASA.txt
+for %F in (*.fg) do fg3 controls %F race african european &gt; %FRaceAFE.txt
+for %F in (*.fg) do fg3 controls %F race african eastAsian &gt; %FRaceAFEA.txt
+for %F in (*.fg) do fg3 controls %F race african southAsian &gt; %FRaceAFSA.txt
+for %F in (*.fg) do fg3 controls %F race european eastAsian &gt; %FRaceEEA.txt
+for %F in (*.fg) do fg3 controls %F race european southAsian &gt; %FRaceESA.txt
+for %F in (*.fg) do fg3 controls %F race eastAsian southAsian &gt; %FRaceEASA.txt</code></pre><p>Age:</p>
+<pre><code>for %F in (*.fg) do fg3 controls %F age shape &gt; %Fageshape.txt
+for %F in (*.fg) do fg3 controls %F age color &gt; %Fagecolor.txt</code></pre><p>Symmetry:</p>
+<pre><code>for %F in (*.fg) do fg3 controls %F asymmetry &gt; %Fasymmetry.txt</code></pre><p>Caricature/averageness:</p>
+<pre><code>for %F in (*.fg) do fg3 controls %F caricature all shape &gt; %Fallcarshape.txt
+for %F in (*.fg) do fg3 controls %F caricature all color &gt; %Fallcarcolor.txt
+for %F in (*.fg) do fg3 controls %F caricature african shape &gt; %Fafricancarshape.txt
+for %F in (*.fg) do fg3 controls %F caricature african color &gt; %Fafricancarcolor.txt
+for %F in (*.fg) do fg3 controls %F caricature european shape &gt; %Feuropeancarshape.txt
+for %F in (*.fg) do fg3 controls %F caricature european color &gt; %Feuropeancarcolor.txt
+for %F in (*.fg) do fg3 controls %F caricature eastAsian shape &gt; %FeastAsiancarshape.txt
+for %F in (*.fg) do fg3 controls %F caricature eastAsian color &gt; %FeastAsiancarcolor.txt
+for %F in (*.fg) do fg3 controls %F caricature southAsian shape &gt; %FsouthAsiancarshape.txt
+for %F in (*.fg) do fg3 controls %F caricature southAsian color &gt; %FsouthAsiancarcolor.txt</code></pre><hr>
+<p>That is all you need, but for some bash &amp; python to quick aggregate it into a CSV...</p>
+<p>Second, in Bash, this concats all cues per face (.fg file) into a txt per face:</p>
+<hr>
+<pre><code>for f in *.fg; do cat ${s}*.txt &gt; ${s:0:${#s}-3}_all.txt; done</code></pre><hr>
+<p>Third, with all of the txts per fg file in one folder, run this python code to reorganize and clean each, then make a csv out of the txts:</p>
+<hr>
+<pre><code>import numpy
+import glob as glob
+
+paths = glob.glob("*.txt")
+files = [paths[i].split('/')[-1] for i,path in enumerate(paths)]
+
+for file_i,fname in enumerate(files):
+    lines = open(fname).read().splitlines()
+    lines = [i for i in lines if i != '']
+    linesplit = [i.split(' ') for i in lines]
+    for i,j in enumerate(linesplit):
+        if j[-1] == 'years': linesplit[i] = linesplit[i][0:-1]
+        elif j[-1][0] == '(': linesplit[i][-1] = linesplit[i][-1][1:-1]
+    linesdata = [["".join(i[:-1]),float(i[-1])] for i in linesplit]
+    linesfinal = [[fname.split(".")[0],i[0],i[1]] for i in linesdata]
+    numpy.savetxt("%s.csv" % (fname.split(".")[0]), linesfinal, delimiter=",", fmt='%s')</code></pre><hr>
+<p>Last, again in Bash, aggregate the CSVs into one:</p>
+<hr>
+<pre><code>cat *.csv &gt; all_fgstats.csv</code></pre><hr>
+<p>And voila, there you go.</p>]]></content:encoded>
+      <excerpt:encoded />
+      <wp:post_name>2017/3/10/facegen-fg-file-feature-export-to-csv</wp:post_name>
+      <wp:post_type>post</wp:post_type>
+      <wp:post_id>6</wp:post_id>
+      <wp:status>publish</wp:status>
+      <pubDate>Fri, 10 Mar 2017 08:15:19 +0000</pubDate>
+      <wp:post_date>2017-03-10 08:15:19</wp:post_date>
+      <wp:post_date_gmt>2017-03-10 08:15:19</wp:post_date_gmt>
+      <category domain="post_tag" nicename="faces"><![CDATA[faces]]></category>
+      <category domain="post_tag" nicename="facegen"><![CDATA[facegen]]></category>
+      <category domain="post_tag" nicename="tools"><![CDATA[tools]]></category>
+      <category domain="post_tag" nicename="code"><![CDATA[code]]></category>
+      <dc:creator>ryan.m.stolier@gmail.com</dc:creator>
+      <wp:comment_status>closed</wp:comment_status>
+    </item>
+    <item>
+      <title>Who are you willing to express prejudice towards?</title>
+      <link>/blog/2017/1/25/willingness-to-express-prejudice</link>
+      <content:encoded><![CDATA[<p>In this brief essay I outline what I think are some rather apparent target characteristics that increase our willingness to express prejudice. This is all easy to study... but, I am using this blog to journal ideas, and it is kind of outside my area anyhow (😉 &nbsp;colleagues and ambitious grad students).&nbsp;</p><p>[<strong>DISCLAIMER</strong>: this starts with an example I explain my choice of below, before it furies you away]</p><p>Contemporary liberals, who are often self-proclaimed vehemently against the entire empire of stereotyping and prejudice, could rapid-fire free associate one pejorative they themselves use or do not fight against regularly:</p><h3>😤 &nbsp;: &nbsp;"White cis male!"</h3><p>Okay, I use this for a reason, but how about we use a less divisive/incendiary example. How about:</p><h3>&nbsp;😤 &nbsp;: &nbsp;"Corporate elite!"</h3><p>What I use these examples for is to display a common set of target attributes that seem to increase willingness of individuals to express prejudice, generally ('target' = the one being described by the perceivers, in this example, the white cis males or corporate elite). The reason I use these examples, pejoratives utilized by young liberals, is because of their incredible strength as examples - these are cases where liberals, a social group that dedicates massive effort in activism and self-presentation to deter stereotyping and prejudice, willingly and stoutly use pejoratives. To this group, to say "white women are shrill" is offensive while "white men are violent oppressive bigots" is justified and deserved. These are both cases of gross over-generalizations about social categories (even many 'corporate elites' dedicate extraordinary efforts to help prosocial causes), yet one is deplorable while the other is commendable. Importantly, if you asked them about when you can infer something about someone based on their group characteristics (i.e., stereotype; e.g., gender, race, occupation), they would believe they follow a categorical imperative to never do so. Yet here all of that mental effort not only breaks down, but turns over on its head.&nbsp;</p><p>[<em> For the record, I'm well aware of the drastic difference in what the bad eggs of these groups have done, but, first, this is one of the observations that plays into my logic of what is behind this below. Second, before you think 'well, many men have done atrocious violent acts!', consider the slippery logical slope of picking an arbitrary cut-off for proportions of stereotype-congruent targets to justify prejudice (e.g., '20% more males than females have committed this kind of crime, so stereotyping is justifiable' transitive property of equalities into '20% more females than males have committed this kind of crime, so stereotyping is justifiable'). I think the reason some people get caught up on the moral reasons certain ones of these are justifiability relative to the others is actually the process I am outlining below! </em>]</p><p>Anyhow, I believe this is because of a set of powerful target characteristics, that linearly relate to our willingness to express prejudice towards someone.&nbsp;</p><h3>To whom are we willing to express prejudice?</h3><p>Of course there are nuances to all of these, they vary and interact with individual differences.</p><p>Mechanism:</p><p style="margin-left:40px">1. One predominant reason, which is most clear-cut, is how much the target poses a threat to the perceiver (e.g., Cottrell &amp; Neuberg, 2005 - <em>JPSP</em>). Which could also relate to their likeability, or warmth generally (Fiske, Cuddy, Glick, &amp; Xu, 2002 -&nbsp;<em>JPSP</em>).&nbsp;<em>Duh</em>. Which expedites us to the ones I'm here for today....</p><p style="margin-left:40px">2. How capable is the target of carrying out their threat? This is of course the competence dimension generally (Fiske, Cuddy, Glick, &amp; Xu, 2002 - <em>JPSP</em>). Think about all of the groups you are willing to express prejudice towards. Does this track? In the case of liberals... white, male, rich.</p><p style="margin-left:40px">3. How often in the target a victim? This ties into ideas from moral typecasting (Gray &amp; Wegner, 2009 - <em>JPSP</em>), where moral agents (the one committing the action in a dyadic moral transgression) have their agentic qualities attended to, yet moral patients (those on the receiving end of the dyad, victims) have their experiential qualities attended to. This makes sense, for a number of reasons, as adaptively we need to predict intentions of moral agents, and attend to needs of moral patients.&nbsp;</p><p>Of course, competence and victimhood are correlated, but I would think they are distinct in reality (e.g., think of Israel in many instances) and psychology (one involves moral reasoning and dyadic relationships). I think some evidence speaks to this, well, intuitively, in that these threatening competent moral agents of the world elicit increased schadenfreude (Cikara &amp; Fiske, 2012 - <em>SPPS</em>).&nbsp;</p>
+  
+       [caption id="" align="alignnone" width="661.0"]<img src="http://static1.squarespace.com/static/581d6f1ef5e231b25f8a7506/58882f9320099eb1dbbdada5/588976bf725e25b698181cee/1485403855604//img.png" alt="How would you feel with any assortment of these situations and targets? Cikara & Fiske (2012 - SPPS) found higher pleasure to negative events happening to the third."/> How would you feel with any assortment of these situations and targets? Cikara & Fiske (2012 - SPPS) found higher pleasure to negative events happening to the third.[/caption] 
+  
+
+<p>This is all to say, I think schadenfreude is probably rather part and parcel with this. Though, maybe not in all cases. For instance, a very important distinction here is that expression of prejudice like this is a much more deliberate, slow process than schadenfreude. Therefore, it is likely differently affected by higher-order motivations, like internal and external motivations to express and regulate prejudice (Plant &amp; Devine, 1998 -&nbsp;<em>JPSP</em>; Forscher, Cox, Graetz, &amp; Devine, 2015 -&nbsp;<em>JPSP</em>). Though, I think it is interesting to think about how our intentions to express or regulate our prejudice in the first place are modulated by the target at hand.&nbsp;</p><p>Also, maybe it will be good to keep awareness of where we may or may not slip more or less often in our pocket... reducing our prejudice towards one group vs. another is not necessarily zero-sum.... (or is it, moral typecasting people?)</p><p>So to sum up:&nbsp;</p><p style="margin-left:40px">Prejudice_justifiability &nbsp;&lt;- &nbsp;target_warmth &nbsp;+&nbsp;target_competence +&nbsp;target_victimhood *&nbsp;motiv_express_prej + motiv_regulate_prej</p><hr /><p>*Remember when JPSP published tons of quality stuff? Or is there just none left?</p><ul><li>Cikara, M., &amp; Fiske, S. T. (2012). Stereotypes and schadenfreude affective and physiological markers of pleasure at outgroup misfortunes.&nbsp;<em>Social Psychological and Personality Science</em>,&nbsp;<em>3</em>(1), 63-71.</li><li>Cottrell, C. A., &amp; Neuberg, S. L. (2005). Different emotional reactions to different groups: a sociofunctional threat-based approach to" prejudice".&nbsp;<em>Journal of personality and social psychology</em>,&nbsp;<em>88</em>(5), 770.</li><li>Dunton, B. C., &amp; Fazio, R. H. (1997). An individual difference measure of motivation to control prejudiced reactions.&nbsp;<em>Personality and Social Psychology Bulletin</em>,&nbsp;<em>23</em>(3), 316-326.</li><li>Fiske, S. T., Cuddy, A. J., Glick, P., &amp; Xu, J. (2002). A model of (often mixed) stereotype content: competence and warmth respectively follow from perceived status and competition.&nbsp;<em>Journal of personality and social psychology</em>,&nbsp;<em>82</em>(6), 878.</li><li>Gray, K., &amp; Wegner, D. M. (2009). Moral typecasting: divergent perceptions of moral agents and moral patients.&nbsp;<em>Journal of personality and social psychology</em>,&nbsp;<em>96</em>(3), 505.</li><li>Plant, E. A., &amp; Devine, P. G. (1998). Internal and external motivation to respond without prejudice.&nbsp;<em>Journal of personality and social psychology</em>,&nbsp;<em>75</em>(3), 811.</li></ul>]]></content:encoded>
+      <excerpt:encoded />
+      <wp:post_name>2017/1/25/willingness-to-express-prejudice</wp:post_name>
+      <wp:post_type>post</wp:post_type>
+      <wp:post_id>7</wp:post_id>
+      <wp:status>draft</wp:status>
+      <pubDate>Thu, 26 Jan 2017 04:19:08 +0000</pubDate>
+      <wp:post_date>2017-01-26 04:19:08</wp:post_date>
+      <wp:post_date_gmt>2017-01-26 04:19:08</wp:post_date_gmt>
+      <category domain="post_tag" nicename="prejudice"><![CDATA[prejudice]]></category>
+      <category domain="post_tag" nicename="stereotyping"><![CDATA[stereotyping]]></category>
+      <category domain="post_tag" nicename="willingness-to-express-prejudice"><![CDATA[willingness to express prejudice]]></category>
+      <category domain="post_tag" nicename="schadenfreude"><![CDATA[schadenfreude]]></category>
+      <category domain="post_tag" nicename="apocalypse"><![CDATA[apocalypse]]></category>
+      <dc:creator>ryan.m.stolier@gmail.com</dc:creator>
+      <wp:comment_status>closed</wp:comment_status>
+    </item>
+    <item>
+      <wp:attachment_url>http://static1.squarespace.com/static/581d6f1ef5e231b25f8a7506/58882f9320099eb1dbbdada5/588976bf725e25b698181cee/1485403855604//img.png</wp:attachment_url>
+      <link>http://static1.squarespace.com/static/581d6f1ef5e231b25f8a7506/58882f9320099eb1dbbdada5/588976bf725e25b698181cee/1485403855604//img.png</link>
+      <title>attachment-588976bf725e25b698181cee</title>
+      <wp:post_name />
+      <wp:post_type>attachment</wp:post_type>
+      <wp:post_id>8</wp:post_id>
+      <wp:post_parent>7</wp:post_parent>
+      <wp:status>inherit</wp:status>
+      <content:encoded><![CDATA[img-588976bf725e25b698181cee]]></content:encoded>
+      <excerpt:encoded><![CDATA[exc-588976bf725e25b698181cee]]></excerpt:encoded>
+      <pubDate>Thu, 26 Jan 2017 04:10:39 +0000</pubDate>
+      <wp:post_date>2017-01-26 04:10:39</wp:post_date>
+      <wp:post_date_gmt>2017-01-26 04:10:39</wp:post_date_gmt>
+      <dc:creator>ryan.m.stolier@gmail.com</dc:creator>
+    </item>
+    <item>
+      <link>/rymvpa/</link>
+      <title>RyMVPA</title>
+      <pubDate>Fri, 10 Feb 2017 08:11:08 +0000</pubDate>
+      <content:encoded><![CDATA[<h1 class="text-align-center"><a href="https://github.com/rystoli/RyMVPA">RyMVPA</a> (<a href="http://www.pymvpa.org/">PyMVPA</a> Wrapper + Methods)</h1>&nbsp;<h3>What? Why?&nbsp;</h3><p><a href="https://github.com/rystoli/RyMVPA">RyMVPA</a> is an unnecessarily eponymous wrapper for the god-send <a href="http://www.pymvpa.org/">PyMVPA</a>. PyMVPA is a wonderful module for <a href="http://compmem.princeton.edu/publications/NormanEtAlTICS.pdf">MVPA</a>, multi-variate pattern analysis, of data - especially, in my case, fMRI data.&nbsp;In <a href="https://github.com/rystoli/RyMVPA">RyMVPA</a>,&nbsp;many of PyMVPA's pattern analysis tools are available in single function commands to make the magic of PyMVPA less verbose. For instance, you can run an entire searchlight multiple regression Representational Similarity Analysis with a little this:</p><p><code>slRSA_m_nSs( data, target_DM, [control_DM_1 ... control_DM_k] )</code></p>
+<p>Well, that was easier, right?&nbsp;</p><p>As well, with multiple regression RSA as an example, it also comes with many additional methods and toys you may find useful.&nbsp;</p><p style="margin-left:40px">✅&nbsp; Want to perform basic MVPA Classification and RSA analyses in single lines of code?</p><p style="margin-left:40px">✅ &nbsp;Want to be able to do this for single subjects, entire study datasets, in whole-brain searchlights or ROIs?</p><p style="margin-left:40px">✅ &nbsp;Want to perform RSA only including certain cells of the DM?&nbsp;</p><p style="margin-left:40px">✅ &nbsp;Want to see if between-subject individual differences or trial-by-trial covariates relate to the neural similarity of certain conditions?&nbsp;</p><p style="margin-left:40px">✅ &nbsp;Want to statistically compare specific cells of a DM?</p><p style="margin-left:40px">✅ &nbsp;Want to train your classifier on certain targets, and test on others?&nbsp;</p><p>Check it out. Let me know your thoughts.&nbsp;</p><h3>Setup:</h3><p>To install, it's pretty easy.</p><p>1. Download the repository: <a href="https://github.com/rystoli/RyMVPA">https://github.com/rystoli/RyMVPA</a></p><p>2. Use pip!</p><p><code>pip install [path to RyMVPA directory]</code></p>
+<p>3. Then import this as a whole in Python:</p><p><code>from rymvpa import *</code></p>
+<p>4. Get those 48-hour long analyses started quickly!</p><p>Also, the important thing is your data is already prepped. PyMVPA datasets with targets, chunks, per usual. A typical PyMVPA dataset is the data type to be entered into single dataset functions. Multiple dataset functions refer to 'datadicts', which is simply a dictionary where the keys are dataset names (e.g., Subject ID), and values are PyMVPA datasets per usual.</p><p>Enjoy!&nbsp;<a href="https://github.com/rystoli/RyMVPA">https://github.com/rystoli/RyMVPA</a></p><p>*<strong>DISCLAIMER</strong>: Please don't hurt me.&nbsp;Oh, and again, very unofficial, maybe check code to make sure it's doing what you want. 😅 &nbsp;You will find the code is very clean and organized, so this is easy to do!</p><p>And, thanks, Zach Ingbretsen, for much help and contribution!</p>&nbsp;]]></content:encoded>
+      <wp:post_name>rymvpa</wp:post_name>
+      <wp:post_type>page</wp:post_type>
+      <wp:post_id>9</wp:post_id>
+      <wp:status>publish</wp:status>
+    </item>
+    <item>
+      <link>/poetry/</link>
+      <title>Poetry</title>
+      <pubDate>Thu, 09 Mar 2017 03:56:32 +0000</pubDate>
+      <content:encoded><![CDATA[<p>Page under construction (til tenure)</p>]]></content:encoded>
+      <wp:post_name>poetry</wp:post_name>
+      <wp:post_type>page</wp:post_type>
+      <wp:post_id>10</wp:post_id>
+      <wp:status>publish</wp:status>
+    </item>
+  </channel>
+</rss>
+

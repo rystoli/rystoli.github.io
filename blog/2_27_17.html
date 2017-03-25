@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<!--
+	Read Only by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Ryan M Stolier | New York University</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<link rel="stylesheet" href="../assets/ai/css/academicons.css"/>
+		<link rel="icon" type="image/png" href="../images/favicon.png" sizes="32x32">
+
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<span class="image avatar"><img src="../images/avatar.jpg" alt="" /></span>
+					<h1 id="logo">Ryan M. Stolier</h1>
+					
+				</header>
+				<nav id="nav">
+					<ul>
+						<li><a href="../index.html" class="active">Back</a></li>
+					</ul>
+				</nav>
+				<footer>
+					<ul class="icons">
+					<li><font size="6"><a href="CV-Stolier_3_8_17.pdf">CV</a></font></li>
+					<li><a href="https://scholar.google.com/citations?user=nDW764QAAAAJ&hl=en" class="ai ai-google-scholar-square ai-2x"></a></li>
+						<li><a href="https://twitter.com/rystoli" class="icon fa-twitter fa-2x"><span class="label">Twitter</span></a></li>
+						<li><a href="https://github.com/rystoli/RyMVPA" class="icon fa-github fa-2x"><span class="label">Github</span></a></li>
+						<li><a href="mailto:rystoli@nyu.edu" class="icon fa-envelope fa-2x"><span class="label">Email</span></a></li>
+					</ul>
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="container">
+								<a href="../index.html">Back to start</a><br><br>
+<h2>Cluster threshold corrections in PyMVPA with GroupClusterThreshold(), via Stelzer et al. 2013: manual entry of cluster sizes</h2>
+
+<p>This is a continuation of a series of posts I am making on PyMVPA implementation of GroupClusterThreshold() and the permutation clustering algorithm by <a href="https://www.ncbi.nlm.nih.gov/pubmed/23041526">Stelzer et al. (2013)</a>.</p><p>At the end of this correction method, a distribution providing <em>p</em> values per cluster size is available. I simply wanted a way to ask for the <em>p</em> values corresponding to any cluster size I was curious about. This is a quick post logging a solution in the PyMVPA mailing list,&nbsp;provided <a href="http://lists.alioth.debian.org/pipermail/pkg-exppsy-pymvpa/2017q1/003565.html">here</a>.</p><p>Once you have trained the GroupClusterThreshold() object (say, here, as 'gct') on your data from the within-subject permutation test phase, you simply supply cluster sizes of interest (say, here, 40, 60, 80) to this method with the null distribution attribute as well:</p><p><code>cluster_probs_raw = GroupClusterThreshold._transform_to_pvals(np.array([40. 60, 80]), gct._null_cluster_sizes.astype('float'))</code></p>
+<p>Voila. Thanks to Richard Dinga for the tip.&nbsp;</p>
+
+								</div>
+							</section>
+				
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li>&copy; Ryan M Stolier. All rights reserved?</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollzer.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

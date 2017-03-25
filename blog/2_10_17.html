@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<!--
+	Read Only by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Ryan M Stolier | New York University</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<link rel="stylesheet" href="../assets/ai/css/academicons.css"/>
+		<link rel="icon" type="image/png" href="../images/favicon.png" sizes="32x32">
+
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<span class="image avatar"><img src="../images/avatar.jpg" alt="" /></span>
+					<h1 id="logo">Ryan M. Stolier</h1>
+					
+				</header>
+				<nav id="nav">
+					<ul>
+						<li><a href="../index.html" class="active">Back</a></li>
+					</ul>
+				</nav>
+				<footer>
+					<ul class="icons">
+					<li><font size="6"><a href="CV-Stolier_3_8_17.pdf">CV</a></font></li>
+					<li><a href="https://scholar.google.com/citations?user=nDW764QAAAAJ&hl=en" class="ai ai-google-scholar-square ai-2x"></a></li>
+						<li><a href="https://twitter.com/rystoli" class="icon fa-twitter fa-2x"><span class="label">Twitter</span></a></li>
+						<li><a href="https://github.com/rystoli/RyMVPA" class="icon fa-github fa-2x"><span class="label">Github</span></a></li>
+						<li><a href="mailto:rystoli@nyu.edu" class="icon fa-envelope fa-2x"><span class="label">Email</span></a></li>
+					</ul>
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="container">
+								<a href="../index.html">Back to start</a><br><br>
+<h2>Cluster threshold corrections in PyMVPA with GroupClusterThreshold(), via Stelzer et al. 2013: NN clustering method</h2>
+
+<p>I have been teasing apart a PyMVPA multiple comparison cluster correction technique (based on <a href="https://www.ncbi.nlm.nih.gov/pubmed/23041526">Stelzer, Chen, &amp; Turner, 2013</a>), trying to get it to flexibly do a few things. Optimally, I'd like to get it to do everything necessary to be implemented as more concisely described <a href="http://mvpa.blogspot.com/2012/10/permuting-searchlight-maps-stelzer.html">here by Jo Etzel</a>. I am trying to tackle a few things, so I will add them as I go, below. Not an expert on the stats here, just trying to find pressure points in the code to tinker some parameters critical to the algorithm. So any advice/corrections to this appreciated!&nbsp;</p><p>First, a few resources/posts/threads, starring very helpful ones:</p><ul><li>PyMVPA methods [<a href="http://www.pymvpa.org/generated/mvpa2.algorithms.group_clusterthr.html">1</a>, <a href="http://www.pymvpa.org/generated/mvpa2.algorithms.group_clusterthr.GroupClusterThreshold.html">2</a>]*</li><li><a href="http://mvpa.blogspot.com/2012/10/permuting-searchlight-maps-stelzer.html">Jo Etzel's concise description of algorithm</a>*</li><li><a href="http://mvpa.blogspot.com/2013/06/mvpa-permutation-schemes-permutation.html">Jo Etzel discussion of group level permutation testing with cross-validation</a>*</li><li><a href="https://lists.alioth.debian.org/pipermail/pkg-exppsy-pymvpa/2015q3/003200.html">PyMVPA listserv thread</a> (<a href="https://lists.alioth.debian.org/pipermail/pkg-exppsy-pymvpa/2015q3/003202.html">quickest implementation example</a>*)</li><li><a href="https://lists.alioth.debian.org/pipermail/pkg-exppsy-pymvpa/2015q3/003204.html">Links to larger example/code</a></li><li><a href="https://www.ncbi.nlm.nih.gov/pubmed/23041526">Stelzer, Chen, &amp; Turner, 2013</a></li></ul><h3><strong>2/10/17: Nearest-neighbor clustering method</strong></h3><p style="margin-left:40px">Researchers of course ab(use) the ability to use different methods for determining whether two voxels are contiguous and part of the same cluster, e.g., 'NN level' in AFNI. The nearest-neighbor method can consider voxels contiguous if they touch by either faces, edges, or corners. It seems GroupClusterThreshold() defaults to just faces. Can we change this?</p><p style="margin-left:40px">It looks like GroupClusterThreshold() uses a scipy method for determining unique clusters, <a href="https://docs.scipy.org/doc/scipy-0.16.0/reference/generated/scipy.ndimage.measurements.label.html">ndimage.measurements.label</a>.&nbsp;This function takes two arguments. First,&nbsp;input boolean data (array) in which it identifies clusters. In our case, this is a boolean version of your brain map with super-threshold voxels set to 1, sub- to 0. Second, it takes a 'structure' argument which can be fed a sample array to redefine how it labels continuous data points (see doc). This is where it seems we can shift the NN level.</p><p style="margin-left:40px">E.g., to set NN = sides, edges, corners, we can just feed measurements.label in the GroupClusterThreshold() function a second argument with a more flexible structure array in 3 dimensions, np.ones([3,3,3]). So, you can replace calls, such as:&nbsp;</p><p><code>measurements.label(map_)</code></p>
+<p style="margin-left:40px">with the more flexible structure array:</p><p><code>measurements.label( map_, structure = np.ones([3,3,3]) )</code></p>
+<p style="margin-left:40px">But make sure to do so in both calls for the permuted data and your result dataset.</p><p style="margin-left:40px">To clarify, the structure array is basically a hard example of what contiguities count, e.g., the ones array about is creating a cube (with these three slices), with everything marked as a 1 indicating which elements are contiguous and count as a cluster.</p><pre><code>structure = np.array([
+   [[ 1.,  1.,  1.],
+    [ 1.,  1.,  1.],
+    [ 1.,  1.,  1.]],
+
+   [[ 1.,  1.,  1.],
+    [ 1.,  1.,  1.],
+    [ 1.,  1.,  1.]],
+
+   [[ 1.,  1.,  1.],
+    [ 1.,  1.,  1.],
+    [ 1.,  1.,  1.]]])</code></pre><p style="margin-left:40px">You can place 0s to indicate what should or should not count as contiguous. See the measurements.label doc too.</p><p style="margin-left:40px">Again, I lack any expertise in these algorithms and stats... but theoretically, I think that since the algorithm empirically derives significance values, as long as the same NN level is used in both null data and your result dataset, the <em>p</em> value is accurate given the NN level. ...Right? 😅</p><p style="margin-left:40px">Edit: 2/27/17</p><p style="margin-left:40px">I created an edited version of GroupClusterThreshold() in RyMVPA that uses this more flexible nearest neighbor method, <a href="https://github.com/rystoli/RyMVPA/blob/master/rymvpa/group_clusterthr_rymvpa.py">'GroupClusterThreshold_NN3'</a>. Will come as a more flexible form of this method soon.</p>
+
+								</div>
+							</section>
+				
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li>&copy; Ryan M Stolier. All rights reserved?</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollzer.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
