@@ -1,0 +1,1344 @@
+<!DOCTYPE HTML>
+<!--
+	Read Only by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Ryan M Stolier | New York University</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<link rel="stylesheet" href="../assets/ai/css/academicons.css"/>
+		<link rel="icon" type="image/png" href="../images/favicon.png" sizes="32x32">
+
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<span class="image avatar"><img src="../images/avatar.jpg" alt="" /></span>
+					<h1 id="logo">Ryan M. Stolier</h1>
+					
+				</header>
+				<nav id="nav">
+					<ul>
+						<li><a href="../index.html" class="active">Back</a></li>
+					</ul>
+				</nav>
+				<footer>
+					<ul class="icons">
+					<li><font size="6"><a href="CV-Stolier_3_8_17.pdf">CV</a></font></li>
+					<li><a href="https://scholar.google.com/citations?user=nDW764QAAAAJ&hl=en" class="ai ai-google-scholar-square ai-2x"></a></li>
+						<li><a href="https://twitter.com/rystoli" class="icon fa-twitter fa-2x"><span class="label">Twitter</span></a></li>
+						<li><a href="https://github.com/rystoli/RyMVPA" class="icon fa-github fa-2x"><span class="label">Github</span></a></li>
+						<li><a href="mailto:rystoli@nyu.edu" class="icon fa-envelope fa-2x"><span class="label">Email</span></a></li>
+					</ul>
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+<body>
+  
+  <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<br><a href="../index.html">Back to start</a><br>
+
+<a href="https://github.com/rystoli/RyMVPA/blob/master/RyMVPA_tutorial_1.ipynb">Link to full Jupyter notebook</a><br><br>
+
+
+<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1><p>This is a tutorial for <a href="https://github.com/rystoli/RyMVPA">RyMVPA</a>, explained <a href="https://rystoli.github.io/#two">here</a>.</p>
+<p>Note: does not run on my github, as I have yet to set up with a public dataset.</p>
+<p>To understand and use this, please be familiar with <a href="http://www.pymvpa.org/">PyMVPA</a>. At the current state, this wrapper is untested, though it largely calls and streamlines already tested PyMVPA code minus advanced functions. Therefore please understand PyMVPA, and look at RyMVPA code yourself before publishing with it.</p>
+<p>Best prerequisites are these PyMVPA tutorial chapters:</p>
+<ul>
+<li><a href="http://www.pymvpa.org/tutorial_datasets.html">Datasets basics and concepts</a></li>
+<li><a href="http://www.pymvpa.org/tutorial_mappers.html">Getting data in shape</a></li>
+<li><a href="http://www.pymvpa.org/tutorial_classifiers.html">Classifiers</a></li>
+<li><a href="http://www.pymvpa.org/tutorial_searchlight.html">Searchlights</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="RyMVPA-structure">RyMVPA structure<a class="anchor-link" href="#RyMVPA-structure">&#182;</a></h1><p>RyMVPA wrapper functions are organized into several key script files:</p>
+<ul>
+<li><strong>datamanage.py</strong> - etc. functions for handling datasets (e.g., saving, masking, printing attributes to CSV, making ROI masks, and more)</li>
+<li><strong>searchlight_wraps.py</strong> - wrapper functions performing searchlights with various methods (classification, RSA, and our additional RSA methods)</li>
+<li><strong>roi_wraps.py</strong> - wrapper functions performing various methods on specified ROI via ROI mask (classificaiton, RSA, our additional RSA methods)</li>
+</ul>
+<p>We should likely make an easy directory in RyMVPA to print out functions and their purpose, but you'll find them relatively easy to navigate within the <a href="https://github.com/rystoli/RyMVPA/tree/master/rymvpa">Python files</a>. There are according prefixes to all searchlight ('sl') and ROI ('roi') functions, so you can tab out from those to quickly see options. As well, use Python's help function on any RyMVPA method to see documentation.</p>
+<p>Let's import RyMVPA and its dependencies, and take a look at a function's doc:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[108]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">rymvpa</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">slRSA_m_nSs</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Help on function slRSA_m_nSs in module rymvpa.searchlight_wraps:
+
+slRSA_m_nSs(data, model, radius=3, partial_dsm=None, control_dsms=None, resid=False, cmetric=&#39;pearson&#39;, h5=0, h5out=&#39;slRSA_m_nSs.hdf5&#39;, status_print=1)
+    Executes slRSA per subject in datadict (keys=subjIDs), returns dict of avg map fisher Z transformed r&#39;s and 1-p&#39;s per voxel arrays
+    
+    data: dictionary of pymvpa dsets per subj, indices being subjIDs
+    model: model DSM to be correlated with neural DSMs per searchlight center
+    partial_dsm: model DSM to be partialled out of model-neural DSM correlation
+    control_dsms: list of DSMs to be controlled for in multiple regression 
+                  which returns r of model DM predictor (converted from beta)                  
+    resid: Default False. Set to True to return residual to searchlight center
+    radius: sl radius, default 3
+    cmetric: default pearson, other optin &#39;spearman&#39;
+    h5: 1 if you want to save hdf5 as well
+    h5out: hdf5 outfilename
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Various other unique called by these wrappers are in the various other Python files, such as unique similarity analysis algorithms (e.g., multiple regression RSA), partitioners (e.g., that allow us to train on certain targets, test on others), and permutation testing algorithms. Please browse them to find these functions documented, or contact me with questions. I would recommend scanning the files to get a picture of what we have already created. Or, I'd appreciate help making better documentation (and testing ;).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="Setting-up">Setting up<a class="anchor-link" href="#Setting-up">&#182;</a></h1><p>Next, we load the data in the form of a 'data dictionary' or 'datadict'. The datadict is the current convenient way RyMVPA holds and works on datasets with multiple subjects. Each key is the subject ID, each value is the PyMVPA dataset with attributes loaded in.</p>
+<p>In this example, and my work so far, once we create each PyMVPA dataset per subject (including the loading of attributes), we save them into an H5 object that can be readily loaded to analyze data. H5 files are merely any python object saved as a hard file that can be loaded back into python.</p>
+<p><em>This is memory inefficient, as it's holding each subject in in memory, and should be reprogrammed to load one at a time.</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[139]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">h5load</span><span class="p">(</span><span class="s">&#39;brc_allsubjs_tcm.gzipped.hdf5&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[99]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span><span class="p">(</span><span class="s">&quot;&#39;Data&#39; type:&quot;</span><span class="p">,</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;Subject IDs:&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(&#34;&#39;Data&#39; type:&#34;, &lt;type &#39;dict&#39;&gt;)
+(&#39;Subject IDs:&#39;, [&#39;559&#39;, &#39;558&#39;, &#39;572&#39;, &#39;571&#39;, &#39;570&#39;, &#39;551&#39;, &#39;550&#39;, &#39;553&#39;, &#39;552&#39;, &#39;542&#39;, &#39;543&#39;, &#39;540&#39;, &#39;541&#39;, &#39;547&#39;, &#39;544&#39;, &#39;545&#39;, &#39;548&#39;, &#39;549&#39;, &#39;557&#39;, &#39;568&#39;, &#39;569&#39;, &#39;556&#39;, &#39;560&#39;, &#39;561&#39;, &#39;562&#39;, &#39;563&#39;, &#39;564&#39;, &#39;565&#39;, &#39;566&#39;])
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we will see, each dataset is pre-prepared with sample attributes:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[114]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">ds</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;559&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c">#create temp dataset to look at; hard copy so it doesnt alter original!</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dataset: 39x74455@float32, &lt;sa: chunks,targets,time_coords,time_indices&gt;, &lt;fa: voxel_indices&gt;, &lt;a: imghdr,imgtype,mapper,subjID,task,voxel_dim,voxel_eldim&gt;
+stats: mean=8.37888e-09 std=0.995036 var=0.990097 min=-3.35831 max=3.35829
+
+Counts of targets in each chunk:
+  chunks\targets  M1  M2  M3  M4  M5  M6  P1  P2  P3  P4  P5  P6  S0
+                 --- --- --- --- --- --- --- --- --- --- --- --- ---
+       04         1   1   1   1   1   1   1   1   1   1   1   1   1
+       05         1   1   1   1   1   1   1   1   1   1   1   1   1
+       06         1   1   1   1   1   1   1   1   1   1   1   1   1
+
+Summary for targets across chunks
+  targets mean std min max #chunks
+    M1      1   0   1   1     3
+    M2      1   0   1   1     3
+    M3      1   0   1   1     3
+    M4      1   0   1   1     3
+    M5      1   0   1   1     3
+    M6      1   0   1   1     3
+    P1      1   0   1   1     3
+    P2      1   0   1   1     3
+    P3      1   0   1   1     3
+    P4      1   0   1   1     3
+    P5      1   0   1   1     3
+    P6      1   0   1   1     3
+    S0      1   0   1   1     3
+
+Summary for chunks across targets
+  chunks mean std min max #targets
+   04      1   0   1   1     13
+   05      1   0   1   1     13
+   06      1   0   1   1     13
+Sequence statistics for 39 entries from set [&#39;M1&#39;, &#39;M2&#39;, &#39;M3&#39;, &#39;M4&#39;, &#39;M5&#39;, &#39;M6&#39;, &#39;P1&#39;, &#39;P2&#39;, &#39;P3&#39;, &#39;P4&#39;, &#39;P5&#39;, &#39;P6&#39;, &#39;S0&#39;]
+Counter-balance table for orders up to 2:
+Targets/Order O1                          |  O2                          |
+     M1:       0 0 0 0 0 0 0 0 0 0 0 0 3  |   0 0 0 0 0 0 3 0 0 0 0 0 0  |
+     M2:       3 0 0 0 0 0 0 0 0 0 0 0 0  |   0 0 0 0 0 0 0 0 0 0 0 0 3  |
+     M3:       0 3 0 0 0 0 0 0 0 0 0 0 0  |   3 0 0 0 0 0 0 0 0 0 0 0 0  |
+     M4:       0 0 3 0 0 0 0 0 0 0 0 0 0  |   0 3 0 0 0 0 0 0 0 0 0 0 0  |
+     M5:       0 0 0 3 0 0 0 0 0 0 0 0 0  |   0 0 3 0 0 0 0 0 0 0 0 0 0  |
+     M6:       0 0 0 0 3 0 0 0 0 0 0 0 0  |   0 0 0 3 0 0 0 0 0 0 0 0 0  |
+     P1:       0 0 0 0 0 0 0 3 0 0 0 0 0  |   0 0 0 0 0 0 0 0 3 0 0 0 0  |
+     P2:       0 0 0 0 0 0 0 0 3 0 0 0 0  |   0 0 0 0 0 0 0 0 0 3 0 0 0  |
+     P3:       0 0 0 0 0 0 0 0 0 3 0 0 0  |   0 0 0 0 0 0 0 0 0 0 3 0 0  |
+     P4:       0 0 0 0 0 0 0 0 0 0 3 0 0  |   0 0 0 0 0 0 0 0 0 0 0 3 0  |
+     P5:       0 0 0 0 0 0 0 0 0 0 0 3 0  |   0 0 0 0 0 2 0 0 0 0 0 0 0  |
+     P6:       0 0 0 0 0 2 0 0 0 0 0 0 0  |   0 0 0 0 2 0 0 0 0 0 0 0 0  |
+     S0:       0 0 0 0 0 0 3 0 0 0 0 0 0  |   0 0 0 0 0 0 0 3 0 0 0 0 0  |
+Correlations: min=-0.53 max=1 mean=-0.026 sum(abs)=12
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, let's take a close look at this dataset. What we see if samples where participants looked at faces varying on a morph continuum between black and white faces, with S0 ('start') referring to the center point, M ('minus') referring to increasingly White faces, P ('plus') to increasingly Black faces.</p>
+<p>That is, the continuum varies from White (-6, or 'M6') to Ambiguous (0, or 'S0') to Black (+6, or 'P6').</p>
+<p>Data is chunked by functional runs.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span><span class="p">(</span><span class="s">&#39;Targets:&#39;</span><span class="p">,</span><span class="n">ds</span><span class="o">.</span><span class="n">UT</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;Chunks:&#39;</span><span class="p">,</span><span class="n">ds</span><span class="o">.</span><span class="n">UC</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(&#39;Targets:&#39;, array([&#39;M1&#39;, &#39;M2&#39;, &#39;M3&#39;, &#39;M4&#39;, &#39;M5&#39;, &#39;M6&#39;, &#39;P1&#39;, &#39;P2&#39;, &#39;P3&#39;, &#39;P4&#39;, &#39;P5&#39;,
+       &#39;P6&#39;, &#39;S0&#39;],
+      dtype=&#39;|S2&#39;))
+(&#39;Chunks:&#39;, array([&#39;04&#39;, &#39;05&#39;, &#39;06&#39;],
+      dtype=&#39;|S2&#39;))
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, let's load in some dissimilarity matrices we can use for RSA analyses, and any other independent data we may want to combine with analyses. You will see, my python file holding this has some functions that print out QA about DMs, and what is being loaded.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">DMs_brc</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;Example DM:&#39;</span><span class="p">,</span><span class="n">DMs_brc</span><span class="o">.</span><span class="n">mlDMstandard</span><span class="p">[</span><span class="s">&#39;mlDMstandard&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(&#39;Example DM:&#39;, array([[ 0,  1,  2,  3,  4,  5,  2,  3,  4,  5,  6,  7,  1],
+       [ 1,  0,  1,  2,  3,  4,  3,  4,  5,  6,  7,  8,  2],
+       [ 2,  1,  0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  3],
+       [ 3,  2,  1,  0,  1,  2,  5,  6,  7,  8,  9, 10,  4],
+       [ 4,  3,  2,  1,  0,  1,  6,  7,  8,  9, 10, 11,  5],
+       [ 5,  4,  3,  2,  1,  0,  7,  8,  9, 10, 11, 12,  6],
+       [ 2,  3,  4,  5,  6,  7,  0,  1,  2,  3,  4,  5,  1],
+       [ 3,  4,  5,  6,  7,  8,  1,  0,  1,  2,  3,  4,  2],
+       [ 4,  5,  6,  7,  8,  9,  2,  1,  0,  1,  2,  3,  3],
+       [ 5,  6,  7,  8,  9, 10,  3,  2,  1,  0,  1,  2,  4],
+       [ 6,  7,  8,  9, 10, 11,  4,  3,  2,  1,  0,  1,  5],
+       [ 7,  8,  9, 10, 11, 12,  5,  4,  3,  2,  1,  0,  6],
+       [ 1,  2,  3,  4,  5,  6,  1,  2,  3,  4,  5,  6,  0]]))
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lastly, a note. If all of your data is the same size, you should create a 'remap' dataset, which will be used as formatting to bring any PyMVPA datset back to NIFTI format. These are essential as some functions alter featural aspects of the dataset. A remap dataset should always be the original format the dataset was loaded into PyMVPA as.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">remap</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since our datasets are different sizes (each masked by their own data), we will later use each subject's own data as their remap dataset.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="Data-management-tools">Data management tools<a class="anchor-link" href="#Data-management-tools">&#182;</a></h1><p>Now that our environment is set up, with our datadict, a remap dataset, and any additional data needed (DMs), we can get started.</p>
+<p>First, let's take a look at some essential <a href="https://github.com/rystoli/RyMVPA/blob/master/rymvpa/datamanage.py">data management tools</a> available in RyMVPA.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[110]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c"># Save PyMVPA datasets to nifti files</span>
+<span class="n">sl2nifti</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;559&#39;</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;559&#39;</span><span class="p">],</span><span class="s">&#39;s559&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;Nifti files saved in current directory:&#39;</span><span class="p">,</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s">&#39;./*nii&#39;</span><span class="p">))</span>
+<span class="c"># also see datadict2nifti for quickly saving a datadict to niftis when shapes match in a dataset</span>
+
+<span class="c"># Select certain targets (remove targets you aren&#39;t interested to save memory / aid algorithms)</span>
+<span class="n">data_S0</span> <span class="o">=</span> <span class="n">select_targets_data</span><span class="p">(</span><span class="n">data</span><span class="p">,[</span><span class="s">&#39;S0&#39;</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;Unique targets across subjects:&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">([</span><span class="n">data_S0</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">UT</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">data_S0</span><span class="p">]))</span>
+<span class="k">del</span><span class="p">(</span><span class="n">data_S0</span><span class="p">)</span>
+<span class="c"># also see omit functions, and select chunk functions</span>
+
+<span class="c"># Mask a dataset! ...for some reason, PyMVPA doesn&#39;t make code available to do this outside loading a datset with fmri_dataset().</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="s">&#39;tc3_SVM_mask_rFG.nii.gz&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;Masked ds shape:&#39;</span><span class="p">,</span><span class="n">mask_dset</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span><span class="n">mask</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c"># mask of rFG from a group level classification analysis of 3 categories in this dataset</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(&#39;Nifti files saved in current directory:&#39;, [&#39;./MNI_avg152T1.nii&#39;, &#39;./s559.nii&#39;])
+(&#39;Unique targets across subjects:&#39;, array([&#39;S0&#39;],
+      dtype=&#39;|S2&#39;))
+(&#39;Masked ds shape:&#39;, (39, 388))
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Make sure to check out other useful functions for saving PyMVPA datasets back to CSVs to analyze data elsewhere, such as clust2mask, sxs2dset, and sa2csv.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="ROI-basic-analyses">ROI basic analyses<a class="anchor-link" href="#ROI-basic-analyses">&#182;</a></h1><p>To start with one useful function, what if we wanted to see the neural similarity of each condition? You could then use MDS or other methods to look at the representational geometry of any ROI you specify.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[116]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span><span class="p">(</span><span class="n">roi2ndm_1Ss</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">mask</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[ 0.          1.25046669  1.23047037  1.21436335  1.196103    0.87472471
+   0.81395017  0.95932971  1.07953926  0.8516873   1.14392796  1.04139239
+   1.13246263]
+ [ 1.25046669  0.          0.76561399  0.80508065  1.16049718  0.78384882
+   0.98235361  1.36904629  1.37163041  1.17593324  1.33193249  1.2823674
+   0.71330955]
+ [ 1.23047037  0.76561399  0.          0.8713607   1.08899694  0.89487072
+   1.06397869  1.30106281  1.13931563  1.21229903  1.16848239  1.40283523
+   0.79473078]
+ [ 1.21436335  0.80508065  0.8713607   0.          0.8935026   0.76568658
+   1.06387311  1.29719708  1.03290494  1.48754513  1.19914644  1.50850799
+   0.84931425]
+ [ 1.196103    1.16049718  1.08899694  0.8935026   0.          1.17427711
+   0.97074703  1.11624029  0.88627312  1.26839938  0.97024     0.93520427
+   1.30380105]
+ [ 0.87472471  0.78384882  0.89487072  0.76568658  1.17427711  0.
+   1.01281188  1.21388527  1.21153475  1.05234364  1.41981374  1.49141619
+   1.0242347 ]
+ [ 0.81395017  0.98235361  1.06397869  1.06387311  0.97074703  1.01281188
+   0.          1.11859194  1.05484336  1.0892205   1.29217068  1.12844906
+   1.18462767]
+ [ 0.95932971  1.36904629  1.30106281  1.29719708  1.11624029  1.21388527
+   1.11859194  0.          1.01066507  0.92980994  0.81157603  0.73026259
+   1.27641131]
+ [ 1.07953926  1.37163041  1.13931563  1.03290494  0.88627312  1.21153475
+   1.05484336  1.01066507  0.          1.16744284  0.91833392  0.8614714
+   1.31140616]
+ [ 0.8516873   1.17593324  1.21229903  1.48754513  1.26839938  1.05234364
+   1.0892205   0.92980994  1.16744284  0.          0.9398227   0.80861306
+   1.07487427]
+ [ 1.14392796  1.33193249  1.16848239  1.19914644  0.97024     1.41981374
+   1.29217068  0.81157603  0.91833392  0.9398227   0.          0.71355969
+   1.13219438]
+ [ 1.04139239  1.2823674   1.40283523  1.50850799  0.93520427  1.49141619
+   1.12844906  0.73026259  0.8614714   0.80861306  0.71355969  0.
+   1.26477853]
+ [ 1.13246263  0.71330955  0.79473078  0.84931425  1.30380105  1.0242347
+   1.18462767  1.27641131  1.31140616  1.07487427  1.13219438  1.26477853
+   0.        ]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="RSA">RSA<a class="anchor-link" href="#RSA">&#182;</a></h2><p>What if we wanted to perform RSA in this region, using a basic a priori visual model?</p>
+<p><strong>Quick note</strong>: you will notice '1' vs. 'n' prefixes for each function in RyMVPA. '1' applies the analysis to one subject/PyMVPA dataset. 'n' applies the analysis to a datadict.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[118]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">res</span> <span class="o">=</span> <span class="n">roiRSA_nSs</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">mask</span><span class="p">,</span><span class="n">DMs_brc</span><span class="o">.</span><span class="n">mlDMstandard</span><span class="p">[</span><span class="s">&#39;mlDMstandard&#39;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>roiRSA initiated with...
+ Ss: [&#39;559&#39;, &#39;558&#39;, &#39;572&#39;, &#39;571&#39;, &#39;570&#39;, &#39;551&#39;, &#39;550&#39;, &#39;553&#39;, &#39;552&#39;, &#39;542&#39;, &#39;543&#39;, &#39;540&#39;, &#39;541&#39;, &#39;547&#39;, &#39;544&#39;, &#39;545&#39;, &#39;548&#39;, &#39;549&#39;, &#39;557&#39;, &#39;568&#39;, &#39;569&#39;, &#39;556&#39;, &#39;560&#39;, &#39;561&#39;, &#39;562&#39;, &#39;563&#39;, &#39;564&#39;, &#39;565&#39;, &#39;566&#39;]
+roi_mask: tc3_SVM_mask_rFG.nii.gz
+h5: 0
+h5out: roiRSA_nSs.hdf5
+Beginning group level roi analysis on 29 Ss...
+\Running roiRSA for subject 559
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 558
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 572
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 571
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 570
+Dataset masked to shape: (39, 387)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 551
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 550
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 553
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 552
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 542
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 543
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 540
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 541
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 547
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 544
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 545
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 548
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 549
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 557
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 568
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 569
+Dataset masked to shape: (39, 387)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 556
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 560
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 561
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 562
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 563
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 564
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 565
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+\Running roiRSA for subject 566
+Dataset masked to shape: (39, 388)
+Beginning roiRSA analysis...
+{&#39;559&#39;: array([ 0.48580008]), &#39;558&#39;: array([-0.06676991]), &#39;572&#39;: array([ 0.15226941]), &#39;571&#39;: array([ 0.22498803]), &#39;556&#39;: array([ 0.34241248]), &#39;551&#39;: array([ 0.06538629]), &#39;550&#39;: array([ 0.09688034]), &#39;553&#39;: array([ 0.05880565]), &#39;552&#39;: array([ 0.10469893]), &#39;542&#39;: array([ 0.71241793]), &#39;543&#39;: array([ 0.04777559]), &#39;540&#39;: array([ 0.03259562]), &#39;541&#39;: array([-0.02303801]), &#39;547&#39;: array([ 0.60176694]), &#39;544&#39;: array([ 0.0494968]), &#39;545&#39;: array([ 0.23236412]), &#39;548&#39;: array([-0.02421947]), &#39;549&#39;: array([ 0.07536866]), &#39;557&#39;: array([ 0.02157545]), &#39;568&#39;: array([ 0.15395383]), &#39;569&#39;: array([ 0.00509994]), &#39;570&#39;: array([ 0.16150854]), &#39;560&#39;: array([ 0.48344065]), &#39;561&#39;: array([ 0.25972842]), &#39;562&#39;: array([ 0.12640289]), &#39;563&#39;: array([-0.11479552]), &#39;564&#39;: array([-0.13738073]), &#39;565&#39;: array([ 0.23712981]), &#39;566&#39;: array([ 0.11663303])}
+roi group level results: Ttest_1sampResult(statistic=4.0677031535947163, pvalue=0.00035035764727116796)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[120]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Ttest_1sampResult(statistic=4.0677031535947163, pvalue=0.00035035764727116796)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here we see condition similarity is relate to an a priori visual model of the morph levels' similarities. Of course this analysis was circular / based on wholebrain SVM results. Note the documentation for the RSA function, and that you may control for additional DMs in partial correlations or multiple regression as well, for instance, controlling for additional visual models. As well, check documentation for different options, such as distance metrics.</p>
+<h2 id="Classification">Classification<a class="anchor-link" href="#Classification">&#182;</a></h2><p>Now let's try classification. First, we will relab anything below the morph center as White, and above as Black.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[150]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">data_wb</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">data</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">data</span> <span class="p">]</span> <span class="p">)</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">data_wb</span><span class="p">:</span>
+    <span class="n">data_wb</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">sa</span><span class="p">[</span><span class="s">&#39;targets&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;w&#39;</span> <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;M&#39;</span> <span class="k">else</span> <span class="s">&#39;b&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data_wb</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">targets</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;New vs. old target labels:&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">data_wb</span><span class="p">[</span><span class="s">&#39;566&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">targets</span>
+<span class="k">print</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;566&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">targets</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>New vs. old target labels:
+[&#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39;
+ &#39;w&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39;
+ &#39;b&#39; &#39;b&#39; &#39;b&#39;]
+[&#39;M6&#39; &#39;M5&#39; &#39;M4&#39; &#39;M3&#39; &#39;M2&#39; &#39;M1&#39; &#39;S0&#39; &#39;P1&#39; &#39;P2&#39; &#39;P3&#39; &#39;P4&#39; &#39;P5&#39; &#39;P6&#39; &#39;M6&#39; &#39;M5&#39;
+ &#39;M4&#39; &#39;M3&#39; &#39;M2&#39; &#39;M1&#39; &#39;S0&#39; &#39;P1&#39; &#39;P2&#39; &#39;P3&#39; &#39;P4&#39; &#39;P5&#39; &#39;P6&#39; &#39;M6&#39; &#39;M5&#39; &#39;M4&#39; &#39;M3&#39;
+ &#39;M2&#39; &#39;M1&#39; &#39;S0&#39; &#39;P1&#39; &#39;P2&#39; &#39;P3&#39; &#39;P4&#39; &#39;P5&#39; &#39;P6&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[151]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c"># to run the classifier</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">roiClass_nSs</span><span class="p">(</span><span class="n">data_wb</span><span class="p">,</span><span class="n">mask</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>roiClass initiated with...
+ Ss: [&#39;559&#39;, &#39;558&#39;, &#39;572&#39;, &#39;571&#39;, &#39;556&#39;, &#39;551&#39;, &#39;550&#39;, &#39;553&#39;, &#39;552&#39;, &#39;542&#39;, &#39;543&#39;, &#39;540&#39;, &#39;541&#39;, &#39;547&#39;, &#39;544&#39;, &#39;545&#39;, &#39;548&#39;, &#39;549&#39;, &#39;557&#39;, &#39;568&#39;, &#39;569&#39;, &#39;570&#39;, &#39;560&#39;, &#39;561&#39;, &#39;562&#39;, &#39;563&#39;, &#39;564&#39;, &#39;565&#39;, &#39;566&#39;]
+roi_mask: tc3_SVM_mask_rFG.nii.gz
+h5: 0
+h5out: roiClass_nSs.hdf5
+Beginning group level roi analysis on 29 Ss...
+\Running roiClass for subject 559
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 558
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 572
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 571
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 556
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 551
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 550
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 553
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 552
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 542
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 543
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 540
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 541
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 547
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 544
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 545
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 548
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 549
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 557
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 568
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 569
+Dataset masked to shape: (39, 387)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 570
+Dataset masked to shape: (39, 387)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 560
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 561
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 562
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 563
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 564
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 565
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+\Running roiClass for subject 566
+Dataset masked to shape: (39, 388)
+Beginning roiClass analysis w/ targets [&#39;b&#39; &#39;w&#39;]...
+{&#39;559&#39;: 0.19230769230769218, &#39;558&#39;: 0.038461538461538436, &#39;572&#39;: -0.012820512820512775, &#39;571&#39;: 0.14102564102564097, &#39;570&#39;: -0.038461538461538491, &#39;551&#39;: 0.14102564102564108, &#39;550&#39;: 0.064102564102563986, &#39;553&#39;: -0.01282051282051283, &#39;552&#39;: 0.11538461538461542, &#39;542&#39;: 0.3205128205128206, &#39;543&#39;: -0.064102564102564041, &#39;540&#39;: -0.012820512820512775, &#39;541&#39;: -0.012820512820512775, &#39;547&#39;: 0.39743589743589747, &#39;544&#39;: 0.038461538461538436, &#39;545&#39;: 0.16666666666666663, &#39;548&#39;: 0.064102564102564208, &#39;549&#39;: -0.012820512820512775, &#39;557&#39;: -0.064102564102564097, &#39;568&#39;: -0.012820512820512775, &#39;569&#39;: 0.064102564102564097, &#39;556&#39;: 0.11538461538461542, &#39;560&#39;: -0.012820512820512775, &#39;561&#39;: 0.064102564102564208, &#39;562&#39;: 0.21794871794871795, &#39;563&#39;: -0.01282051282051283, &#39;564&#39;: 0.064102564102564097, &#39;565&#39;: 0.1923076923076924, &#39;566&#39;: 0.038461538461538436}
+roi group level results: Ttest_1sampResult(statistic=3.5963261684239347, pvalue=0.0012260115748790965)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[152]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">del</span><span class="p">(</span><span class="n">data_wb</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Ttest_1sampResult(statistic=3.5963261684239347, pvalue=0.0012260115748790965)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Again, circular, but it works! See documentation for altering parameters, such as cross validation partitioners and classifiers.</p>
+<hr>
+<h1 id="Searchlights">Searchlights<a class="anchor-link" href="#Searchlights">&#182;</a></h1><p>Now, to demonstrate these same analyses as searchlights, lets first reduce the dataset size substantially so that we can test this code quickly (searchlights can take substantial time, and I recommend HPC use always to divide subjects up and perform quickly). We'll also only look at a few subjects.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[179]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">h5load</span><span class="p">(</span><span class="s">&#39;brc_allsubjs_tcm.gzipped.hdf5&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="p">[</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">mask_dset</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">s</span><span class="p">],</span><span class="n">mask</span><span class="p">))</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()[:</span><span class="mi">2</span><span class="p">]])</span> <span class="c">#using our mask, so datasets will have only a few hundred searchlight centers</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="RSA">RSA<a class="anchor-link" href="#RSA">&#182;</a></h2><p>First, let's run our RSA model through a searchlight. See function documentation for other options, such as saving options, metrics, multiple regression RSA, etc.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[180]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">slres</span> <span class="o">=</span> <span class="n">slRSA_m_nSs</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="n">DMs_brc</span><span class="o">.</span><span class="n">mlDMstandard</span><span class="p">[</span><span class="s">&#39;mlDMstandard&#39;</span><span class="p">])[</span><span class="s">&#39;r&#39;</span><span class="p">]</span> <span class="c">#turn off status print to see status, easy to estimate searchlight time to complete with this</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model slRSA initiated with...
+ Ss: [&#39;559&#39;, &#39;558&#39;]
+model shape: (13, 13)
+radius: 3
+h5: 0
+h5out: slRSA_m_nSs.hdf5
+Beginning group level searchlight on 2 Ss...
+
+Preparing slRSA for subject 559
+(&#39;Mean group sample computed at size:&#39;, (13, 388), &#39;...with UT:&#39;, array([&#39;M1&#39;, &#39;M2&#39;, &#39;M3&#39;, &#39;M4&#39;, &#39;M5&#39;, &#39;M6&#39;, &#39;P1&#39;, &#39;P2&#39;, &#39;P3&#39;, &#39;P4&#39;, &#39;P5&#39;,
+       &#39;P6&#39;, &#39;S0&#39;],
+      dtype=&#39;|S2&#39;))
+Beginning slRSA analysis...
+[SLC] DBG:                           Starting computing block for 388 elements
+[SLC] DBG:                           +0:00:02 ======[100%]====== 0:00:00  ROI 388 (388/388), 22 features  
+
+[SLC] DBG:                            hstacking 388 results of shape (2, 1)
+[SLC] DBG:                            hstacked shape (2, 388)
+(&#39;slRSA complete with map of shape:&#39;, (2, 388), &#39;...p max/min:&#39;, 0.67552554522119779, -0.11514606063725281, &#39;...r max/min&#39;, 0.99861764238515327, 1.1658930826045289e-11)
+
+Preparing slRSA for subject 558
+(&#39;Mean group sample computed at size:&#39;, (13, 388), &#39;...with UT:&#39;, array([&#39;M1&#39;, &#39;M2&#39;, &#39;M3&#39;, &#39;M4&#39;, &#39;M5&#39;, &#39;M6&#39;, &#39;P1&#39;, &#39;P2&#39;, &#39;P3&#39;, &#39;P4&#39;, &#39;P5&#39;,
+       &#39;P6&#39;, &#39;S0&#39;],
+      dtype=&#39;|S2&#39;))
+Beginning slRSA analysis...
+[SLC] DBG:                           Starting computing block for 388 elements
+[SLC] DBG:                           +0:00:01 ======[100%]====== 0:00:00  ROI 388 (388/388), 22 features  
+
+[SLC] DBG:                            hstacking 388 results of shape (2, 1)
+[SLC] DBG:                            hstacked shape (2, 388)
+(&#39;slRSA complete with map of shape:&#39;, (2, 388), &#39;...p max/min:&#39;, 0.16078061265186133, -0.21676437550398894, &#39;...r max/min&#39;, 0.99835124024797528, 0.056619843994200905)
+slRSA complete for all subjects
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[182]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span><span class="p">(</span><span class="s">&#39;shape&#39;</span><span class="p">,</span><span class="n">slres</span><span class="p">[</span><span class="s">&#39;559&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;max&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">slres</span><span class="p">[</span><span class="s">&#39;559&#39;</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;min&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">slres</span><span class="p">[</span><span class="s">&#39;559&#39;</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;mean&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">slres</span><span class="p">[</span><span class="s">&#39;559&#39;</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;sd&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">slres</span><span class="p">[</span><span class="s">&#39;559&#39;</span><span class="p">]))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(&#39;shape&#39;, (388,))
+(&#39;max&#39;, 0.82083767106698002)
+(&#39;min&#39;, -0.11565904014149983)
+(&#39;mean&#39;, 0.26548664407027633)
+(&#39;sd&#39;, 0.15416998901557016)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We now have a numpy array per datadict key (subject), where each value is the result of the analysis within a searchlight sphere around that voxel center. We may now remap and save these as nifti files, and complete whole-brain analyses in other software such as AFNI. Make sure to see documentation for additional save options, such as datadict saving.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[188]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">sl2nifti</span><span class="p">(</span><span class="n">slres</span><span class="p">[</span><span class="s">&#39;559&#39;</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;559&#39;</span><span class="p">],</span><span class="s">&#39;slRSA_rFG_559.nii&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;Nifti files saved in current directory:&#39;</span><span class="p">,</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s">&#39;./*nii&#39;</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(&#39;Nifti files saved in current directory:&#39;, [&#39;./MNI_avg152T1.nii&#39;, &#39;./slRSA_rFG_559.nii&#39;, &#39;./s559.nii&#39;, &#39;./sl_rFG_572.nii&#39;, &#39;./sl_rFG_559.nii&#39;])
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Classification">Classification<a class="anchor-link" href="#Classification">&#182;</a></h2><p>Lastly, let's do classification. Again, check documentation for more options. First, let's relabel again. Then run our datadict searchlight.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[185]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">data_wb</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">data</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">data</span> <span class="p">]</span> <span class="p">)</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">data_wb</span><span class="p">:</span>
+    <span class="n">data_wb</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">sa</span><span class="p">[</span><span class="s">&#39;targets&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;w&#39;</span> <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s">&#39;M&#39;</span> <span class="k">else</span> <span class="s">&#39;b&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">data_wb</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">targets</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;New vs. old target labels:&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">data_wb</span><span class="p">[</span><span class="s">&#39;559&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">targets</span>
+<span class="k">print</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;559&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">targets</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>New vs. old target labels:
+[&#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39;
+ &#39;w&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;w&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39; &#39;b&#39;
+ &#39;b&#39; &#39;b&#39; &#39;b&#39;]
+[&#39;M6&#39; &#39;M5&#39; &#39;M4&#39; &#39;M3&#39; &#39;M2&#39; &#39;M1&#39; &#39;S0&#39; &#39;P1&#39; &#39;P2&#39; &#39;P3&#39; &#39;P4&#39; &#39;P5&#39; &#39;P6&#39; &#39;M6&#39; &#39;M5&#39;
+ &#39;M4&#39; &#39;M3&#39; &#39;M2&#39; &#39;M1&#39; &#39;S0&#39; &#39;P1&#39; &#39;P2&#39; &#39;P3&#39; &#39;P4&#39; &#39;P5&#39; &#39;P6&#39; &#39;M6&#39; &#39;M5&#39; &#39;M4&#39; &#39;M3&#39;
+ &#39;M2&#39; &#39;M1&#39; &#39;S0&#39; &#39;P1&#39; &#39;P2&#39; &#39;P3&#39; &#39;P4&#39; &#39;P5&#39; &#39;P6&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[186]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">slres</span> <span class="o">=</span> <span class="n">slClass_nSs</span><span class="p">(</span> <span class="n">data_wb</span> <span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>slClass initiated with...
+ Ss: [&#39;559&#39;, &#39;558&#39;]
+radius: 3
+h5: 0
+h5out: slSVM_nSs.hdf5
+Beginning group level searchlight on 2 Ss...
+\Running slClass for subject 559
+Beginning sl classification analysis...
+[SLC] DBG:                           Starting computing block for 388 elements
+[SLC] DBG:                           +0:00:08 ======[100%]====== 0:00:00  ROI 388 (388/388), 22 features  
+
+[SLC] DBG:                            hstacking 388 results of shape (3, 1)
+[SLC] DBG:                            hstacked shape (3, 388)
+\Running slClass for subject 558
+Beginning sl classification analysis...
+[SLC] DBG:                           Starting computing block for 388 elements
+[SLC] DBG:                           +0:00:08 ======[100%]====== 0:00:00  ROI 388 (388/388), 22 features  
+
+[SLC] DBG:                            hstacking 388 results of shape (3, 1)
+[SLC] DBG:                            hstacked shape (3, 388)
+slClass complete for all subjects
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[187]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span><span class="p">(</span><span class="s">&#39;shape&#39;</span><span class="p">,</span><span class="n">slres</span><span class="p">[</span><span class="s">&#39;559&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;max&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">slres</span><span class="p">[</span><span class="s">&#39;559&#39;</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;min&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">slres</span><span class="p">[</span><span class="s">&#39;559&#39;</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;mean&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">slres</span><span class="p">[</span><span class="s">&#39;559&#39;</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;sd&#39;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">slres</span><span class="p">[</span><span class="s">&#39;559&#39;</span><span class="p">]))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(&#39;shape&#39;, (1, 388))
+(&#39;max&#39;, 0.29487179487179482)
+(&#39;min&#39;, -0.11538461538461542)
+(&#39;mean&#39;, 0.10415014538725878)
+(&#39;sd&#39;, 0.078293323382827795)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We again now have an array of results per searchlight voxel center. However, this time, they are accuracies subtracting chance level, indicating probability of correct classification compared to chance level. Again, we may save this in various ways for group level significance testing.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[189]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">sl2nifti</span><span class="p">(</span><span class="n">slres</span><span class="p">[</span><span class="s">&#39;559&#39;</span><span class="p">],</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;559&#39;</span><span class="p">],</span><span class="s">&#39;slClass_rFG_559.nii&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">&#39;Nifti files saved in current directory:&#39;</span><span class="p">,</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s">&#39;./*nii&#39;</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(&#39;Nifti files saved in current directory:&#39;, [&#39;./MNI_avg152T1.nii&#39;, &#39;./slRSA_rFG_559.nii&#39;, &#39;./slClass_rFG_559.nii&#39;, &#39;./s559.nii&#39;, &#39;./sl_rFG_572.nii&#39;, &#39;./sl_rFG_559.nii&#39;])
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="Summing-up">Summing up<a class="anchor-link" href="#Summing-up">&#182;</a></h1><p>That is it for the basics. Another tutorial will cover more advanced analyses shortly.</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+</body>
+					<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li>&copy; Ryan M Stolier. All rights reserved?</li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollzer.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
