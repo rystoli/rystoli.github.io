@@ -1,0 +1,1153 @@
+<!DOCTYPE HTML>
+<!--
+	Read Only by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Ryan M Stolier | New York University</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<link rel="stylesheet" href="../assets/ai/css/academicons.css"/>
+		<link rel="icon" type="image/png" href="../images/favicon.png" sizes="32x32">
+
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<span class="image avatar"><img src="../images/avatar.jpg" alt="" /></span>
+					<h1 id="logo">Ryan M. Stolier</h1>
+					
+				</header>
+				<nav id="nav">
+					<ul>
+						<li><a href="../index.html" class="active">Back</a></li>
+					</ul>
+				</nav>
+				<footer>
+					<ul class="icons">
+					<li><font size="6"><a href="CV-Stolier_3_8_17.pdf">CV</a></font></li>
+					<li><a href="https://scholar.google.com/citations?user=nDW764QAAAAJ&hl=en" class="ai ai-google-scholar-square ai-2x"></a></li>
+						<li><a href="https://twitter.com/rystoli" class="icon fa-twitter fa-2x"><span class="label">Twitter</span></a></li>
+						<li><a href="https://github.com/rystoli/RyMVPA" class="icon fa-github fa-2x"><span class="label">Github</span></a></li>
+						<li><a href="mailto:rystoli@nyu.edu" class="icon fa-envelope fa-2x"><span class="label">Email</span></a></li>
+					</ul>
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+<body>
+  
+  <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<br><a href="../index.html">Back to start</a><br>
+
+<a href="https://github.com/rystoli/RyMVPA/blob/master/RyMVPA_PyMVPAintro.ipynb">Link to full Jupyter notebook</a><br><br>
+
+<h1 id="RyMVPA-Tutorial-Day-1">RyMVPA Tutorial Day 1<a class="anchor-link" href="#RyMVPA-Tutorial-Day-1">&#194;&#182;</a></h1><p>Here is our intro from 9/25/17. Importantly, you all took some steps to get things running and loading proper, please take note of those somewhere you can keep track of.</p>
+<p>This tutorial goes over the bones of PyMVPA. Read about object oriented programming, classification, and RSA for refreshers on conceptual issues. Eg, Jim's 'mind-reading' paper, Kriegeskorte's 2008 RSA paper.</p>
+<p>First, we need to import PyMVPA. Remember this import command pulls in everything to be called immediately, as opposed to a typical import command where we'd have to reference the module each call. Read and learn the difference in types of import commands in python.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">mvpa2.suite</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Remember, its normal for warnings to appear. Main concern is if an error is raised, which kills the import.</p>
+<p>To test the import, teach looking at documentation, and figure out how to load our data, let's look at the h5load function.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">h5load</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Help on function h5load in module mvpa2.base.hdf5:
+
+h5load(filename, name=None)
+    Loads the content of an HDF5 file that has been stored by `h5save()`.
+    
+    This is a convenience wrapper around `hdf2obj()`. Please see its
+    documentation for more details.
+    
+    Parameters
+    ----------
+    filename : str
+      Name of the file to open and load its content.
+    name : str
+      Name of a specific object to load from the file.
+    
+    Returns
+    -------
+    instance
+      An object of whatever has been stored in the file.
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This and other help/doc calls can make your life easier, so learn them, and how to navigate documentation online, email listserv threads, and places such as stack overflow for help.</p>
+<p>Now, remember, hdf5/h5 tools are great because you can save any python object as a file, then load it back. For instance, let's save a numpy array locally, then load it back in.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">tom</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+<span class="n">h5save</span><span class="p">(</span><span class="s1">&#39;tom_array.hdf5&#39;</span><span class="p">,</span><span class="n">tom</span><span class="p">,</span><span class="n">compression</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="k">del</span><span class="p">(</span><span class="n">tom</span><span class="p">)</span>
+<span class="n">tom</span> <span class="o">=</span> <span class="n">h5load</span><span class="p">(</span><span class="s1">&#39;tom_array.hdf5&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">tom</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[1 2 3]
+ [4 5 6]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Super cool.</strong> Now, let's load in our data. Change the path to yours!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">h5load</span><span class="p">(</span><span class="s1">&#39;./mufasa_locale/scc/final_Current/roi_r2_final/scc_Tzs_cut.hdf5&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Remember, we are working with the data in this special format to accomodate RyMVPA later. This is a dictionary, where each key is a subject number, and each value their pymvpa dataset. Let's look at our subjects, and move one to the side to analyze here:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c1"># checking object types is important and helps keep up with what you&#39;re looking at and if its proper</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="c1"># here&#39;s our subject IDs</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;586&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># here we are using .copy() to make a hard separate copy in memory</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ds</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;586&#39;, &#39;587&#39;, &#39;584&#39;, &#39;592&#39;, &#39;582&#39;, &#39;583&#39;, &#39;580&#39;, &#39;590&#39;, &#39;591&#39;, &#39;581&#39;, &#39;577&#39;, &#39;579&#39;, &#39;575&#39;, &#39;589&#39;, &#39;578&#39;, &#39;576&#39;, &#39;588&#39;, &#39;585&#39;, &#39;593&#39;, &#39;574&#39;]
+&lt;class &#39;mvpa2.datasets.base.Dataset&#39;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now let's get a good look at a PyMVPA dataset. Remember, there are dataset attributes, feature attributes, and sample attributes. Read about them in PyMVPA doc more. We can look at them like this:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># dataset attributes</span>
+<span class="k">print</span> <span class="n">ds</span><span class="o">.</span><span class="n">a</span>
+<span class="c1"># feature attributes</span>
+<span class="k">print</span> <span class="n">ds</span><span class="o">.</span><span class="n">fa</span>
+<span class="c1"># sample attributes</span>
+<span class="k">print</span> <span class="n">ds</span><span class="o">.</span><span class="n">sa</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;DatasetAttributesCollection: imgaffine,imghdr,imgtype,mapper,subjID,voxel_dim,voxel_eldim&gt;
+&lt;FeatureAttributesCollection: voxel_indices&gt;
+&lt;SampleAttributesCollection: chunks,targets,time_coords,time_indices&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That's the list of them in this dataset, but let's look at them up close. Remember, you can also tab out to get an idea of what attributes any object has in python, just type the object name, a period (eg, 'ds.') then tab out to see options. Every object has attributes and methods. Google it.</p>
+<p><em>Important side note, remember there are two ways to reference certain sample attributes, with a brack index like a dictionary, or the attribute data directly in the normal period notation. The period notation, like below, returns the actual object used as attributes, whereas the brackets allow you to refer to them in a way that you can replace them.</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># to change attributes, you need to reference them with brackets as strings, period calls only return values</span>
+
+<span class="k">print</span> <span class="n">ds</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># whats our dataset shape, how many samples (TRs/observations) and features (voxels)</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;subjID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;999&#39;</span> <span class="c1"># let&#39;s see how you can change an attribute, eg, add a subject ID </span>
+<span class="k">print</span> <span class="n">ds</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">subjID</span>
+<span class="k">print</span> <span class="n">ds</span><span class="o">.</span><span class="n">fa</span><span class="o">.</span><span class="n">voxel_indices</span>
+<span class="k">print</span> <span class="n">ds</span><span class="o">.</span><span class="n">sa</span><span class="o">.</span><span class="n">targets</span><span class="p">,</span><span class="n">ds</span><span class="o">.</span><span class="n">sa</span><span class="o">.</span><span class="n">chunks</span>
+<span class="c1"># or</span>
+<span class="k">print</span> <span class="n">ds</span><span class="o">.</span><span class="n">UT</span><span class="p">,</span><span class="n">ds</span><span class="o">.</span><span class="n">UC</span> <span class="c1"># shortcuts to see unique targets and chunks</span>
+<span class="k">print</span> <span class="n">ds</span><span class="o">.</span><span class="n">samples</span> <span class="c1"># reference to actualy data object directly</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(72, 86474)
+999
+[[ 5 28 23]
+ [ 5 29 21]
+ [ 5 29 22]
+ ..., 
+ [55 40 25]
+ [55 41 24]
+ [55 41 25]]
+[&#39;an&#39; &#39;ap&#39; &#39;bn&#39; &#39;bp&#39; &#39;an&#39; &#39;ap&#39; &#39;bn&#39; &#39;bp&#39; &#39;an&#39; &#39;ap&#39; &#39;bn&#39; &#39;bp&#39; &#39;an&#39; &#39;ap&#39; &#39;bn&#39;
+ &#39;bp&#39; &#39;an&#39; &#39;ap&#39; &#39;bn&#39; &#39;bp&#39; &#39;an&#39; &#39;ap&#39; &#39;bn&#39; &#39;bp&#39; &#39;ac&#39; &#39;bc&#39; &#39;wc&#39; &#39;hc&#39; &#39;ac&#39; &#39;bc&#39;
+ &#39;wc&#39; &#39;hc&#39; &#39;ac&#39; &#39;bc&#39; &#39;wc&#39; &#39;hc&#39; &#39;ac&#39; &#39;bc&#39; &#39;wc&#39; &#39;hc&#39; &#39;ac&#39; &#39;bc&#39; &#39;wc&#39; &#39;hc&#39; &#39;ac&#39;
+ &#39;bc&#39; &#39;wc&#39; &#39;hc&#39; &#39;as&#39; &#39;bs&#39; &#39;cs&#39; &#39;ss&#39; &#39;as&#39; &#39;bs&#39; &#39;cs&#39; &#39;ss&#39; &#39;as&#39; &#39;bs&#39; &#39;cs&#39; &#39;ss&#39;
+ &#39;as&#39; &#39;bs&#39; &#39;cs&#39; &#39;ss&#39; &#39;as&#39; &#39;bs&#39; &#39;cs&#39; &#39;ss&#39; &#39;as&#39; &#39;bs&#39; &#39;cs&#39; &#39;ss&#39;] [ 1.  1.  1.  1.  2.  2.  2.  2.  3.  3.  3.  3.  4.  4.  4.  4.  5.  5.
+  5.  5.  6.  6.  6.  6.  1.  1.  1.  1.  2.  2.  2.  2.  3.  3.  3.  3.
+  4.  4.  4.  4.  5.  5.  5.  5.  6.  6.  6.  6.  1.  1.  1.  1.  2.  2.
+  2.  2.  3.  3.  3.  3.  4.  4.  4.  4.  5.  5.  5.  5.  6.  6.  6.  6.]
+[&#39;ac&#39; &#39;an&#39; &#39;ap&#39; &#39;as&#39; &#39;bc&#39; &#39;bn&#39; &#39;bp&#39; &#39;bs&#39; &#39;cs&#39; &#39;hc&#39; &#39;ss&#39; &#39;wc&#39;] [ 1.  2.  3.  4.  5.  6.]
+[[ 1.56895947 -0.00515484 -0.45095265 ...,  0.03682332 -2.27489138
+  -0.70922989]
+ [ 1.05142415  1.14230013  1.65540886 ...,  0.69169277 -0.16223796
+  -0.64775032]
+ [ 0.5766384   0.60853904 -0.92059129 ...,  0.79704809  0.00769751
+  -0.1766022 ]
+ ..., 
+ [ 0.04802357 -1.01954627 -1.58363283 ..., -1.40539515 -0.50858265
+  -0.74268609]
+ [-0.70540339  0.56131148 -0.92980981 ..., -0.58964646 -0.0319623
+  -0.95533049]
+ [ 0.79910499  1.10186982 -0.5927636  ..., -0.17896539 -0.51028609
+  -0.66443038]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># OR</span>
+<span class="k">print</span> <span class="n">ds</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dataset: 72x86474@float32, &lt;sa: chunks,targets,time_coords,time_indices&gt;, &lt;fa: voxel_indices&gt;, &lt;a: imgaffine,imghdr,imgtype,mapper,subjID,voxel_dim,voxel_eldim&gt;
+stats: mean=-3.08919e-09 std=0.909753 var=0.827651 min=-3.29849 max=3.28968
+
+Counts of targets in each chunk:
+  chunks\targets  ac  an  ap  as  bc  bn  bp  bs  cs  hc  ss  wc
+                 --- --- --- --- --- --- --- --- --- --- --- ---
+       1.0        1   1   1   1   1   1   1   1   1   1   1   1
+       2.0        1   1   1   1   1   1   1   1   1   1   1   1
+       3.0        1   1   1   1   1   1   1   1   1   1   1   1
+       4.0        1   1   1   1   1   1   1   1   1   1   1   1
+       5.0        1   1   1   1   1   1   1   1   1   1   1   1
+       6.0        1   1   1   1   1   1   1   1   1   1   1   1
+
+Summary for targets across chunks
+  targets mean std min max #chunks
+    ac      1   0   1   1     6
+    an      1   0   1   1     6
+    ap      1   0   1   1     6
+    as      1   0   1   1     6
+    bc      1   0   1   1     6
+    bn      1   0   1   1     6
+    bp      1   0   1   1     6
+    bs      1   0   1   1     6
+    cs      1   0   1   1     6
+    hc      1   0   1   1     6
+    ss      1   0   1   1     6
+    wc      1   0   1   1     6
+
+Summary for chunks across targets
+  chunks mean std min max #targets
+    1      1   0   1   1     12
+    2      1   0   1   1     12
+    3      1   0   1   1     12
+    4      1   0   1   1     12
+    5      1   0   1   1     12
+    6      1   0   1   1     12
+Sequence statistics for 72 entries from set [&#39;ac&#39;, &#39;an&#39;, &#39;ap&#39;, &#39;as&#39;, &#39;bc&#39;, &#39;bn&#39;, &#39;bp&#39;, &#39;bs&#39;, &#39;cs&#39;, &#39;hc&#39;, &#39;ss&#39;, &#39;wc&#39;]
+Counter-balance table for orders up to 2:
+Targets/Order O1                        |  O2                        |
+     ac:       0 0 0 0 6 0 0 0 0 0 0 0  |   0 0 0 0 0 0 0 0 0 0 0 6  |
+     an:       0 0 6 0 0 0 0 0 0 0 0 0  |   0 0 0 0 0 6 0 0 0 0 0 0  |
+     ap:       0 0 0 0 0 6 0 0 0 0 0 0  |   0 0 0 0 0 0 6 0 0 0 0 0  |
+     as:       0 0 0 0 0 0 0 6 0 0 0 0  |   0 0 0 0 0 0 0 0 6 0 0 0  |
+     bc:       0 0 0 0 0 0 0 0 0 0 0 6  |   0 0 0 0 0 0 0 0 0 6 0 0  |
+     bn:       0 0 0 0 0 0 6 0 0 0 0 0  |   1 5 0 0 0 0 0 0 0 0 0 0  |
+     bp:       1 5 0 0 0 0 0 0 0 0 0 0  |   0 0 5 0 1 0 0 0 0 0 0 0  |
+     bs:       0 0 0 0 0 0 0 0 6 0 0 0  |   0 0 0 0 0 0 0 0 0 0 6 0  |
+     cs:       0 0 0 0 0 0 0 0 0 0 6 0  |   0 0 0 5 0 0 0 0 0 0 0 0  |
+     hc:       5 0 0 1 0 0 0 0 0 0 0 0  |   0 0 0 0 5 0 0 1 0 0 0 0  |
+     ss:       0 0 0 5 0 0 0 0 0 0 0 0  |   0 0 0 0 0 0 0 5 0 0 0 0  |
+     wc:       0 0 0 0 0 0 0 0 0 6 0 0  |   5 0 0 1 0 0 0 0 0 0 0 0  |
+Correlations: min=-0.65 max=0.92 mean=-0.014 sum(abs)=25
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># and to see each sample up close....</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ds</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">i</span><span class="o">.</span><span class="n">sa</span><span class="o">.</span><span class="n">time_indices</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">sa</span><span class="o">.</span><span class="n">chunks</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">i</span><span class="o">.</span><span class="n">sa</span><span class="o">.</span><span class="n">targets</span><span class="p">,</span><span class="n">i</span><span class="o">.</span><span class="n">samples</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[0] [ 1.] (1, 86474) [&#39;an&#39;] [[ 1.56895947 -0.00515484 -0.45095265 ...,  0.03682332 -2.27489138
+  -0.70922989]]
+[1] [ 1.] (1, 86474) [&#39;ap&#39;] [[ 1.05142415  1.14230013  1.65540886 ...,  0.69169277 -0.16223796
+  -0.64775032]]
+[2] [ 1.] (1, 86474) [&#39;bn&#39;] [[ 0.5766384   0.60853904 -0.92059129 ...,  0.79704809  0.00769751
+  -0.1766022 ]]
+[3] [ 1.] (1, 86474) [&#39;bp&#39;] [[-0.09207978 -0.76136887  0.21937369 ...,  0.59290373 -0.20790583
+  -0.37358156]]
+[4] [ 2.] (1, 86474) [&#39;an&#39;] [[ 0.22106083 -0.5769217  -0.47130743 ...,  1.63640285 -0.93795413
+   0.90210861]]
+[5] [ 2.] (1, 86474) [&#39;ap&#39;] [[-0.51109815 -1.1174134  -0.7583968  ...,  0.96687639 -0.12521978
+   1.05656707]]
+[6] [ 2.] (1, 86474) [&#39;bn&#39;] [[ 1.46095335 -1.11682534 -0.74013501 ...,  1.0684706  -0.6295175
+   1.34438181]]
+[7] [ 2.] (1, 86474) [&#39;bp&#39;] [[-0.24016844 -0.93364656 -0.77025861 ...,  0.70631087  0.25070012
+  -0.71538353]]
+[8] [ 3.] (1, 86474) [&#39;an&#39;] [[ 1.11752272  1.98873639  0.962524   ..., -1.16408062 -1.57001805
+  -2.03287005]]
+[9] [ 3.] (1, 86474) [&#39;ap&#39;] [[-0.36161739  0.41047731  0.45432797 ..., -0.84305143 -1.07845318
+  -0.62329948]]
+[10] [ 3.] (1, 86474) [&#39;bn&#39;] [[-1.26904476  0.66374463 -0.98951608 ...,  0.37759274 -0.53242505
+   0.67611122]]
+[11] [ 3.] (1, 86474) [&#39;bp&#39;] [[ 0.33785483 -1.2329849  -0.68711287 ..., -1.62828875 -1.563501
+  -1.45699966]]
+[12] [ 4.] (1, 86474) [&#39;an&#39;] [[ 0.88528383 -0.15399933  0.33032006 ..., -1.37616003  0.30003279
+  -0.95188028]]
+[13] [ 4.] (1, 86474) [&#39;ap&#39;] [[-0.28773412  0.16160499  0.04744161 ..., -0.65571785 -0.5152787
+   0.91653407]]
+[14] [ 4.] (1, 86474) [&#39;bn&#39;] [[-0.1668355  -0.38293478 -0.48114601 ..., -1.37606251 -0.84846836
+  -1.50382543]]
+[15] [ 4.] (1, 86474) [&#39;bp&#39;] [[ 0.74470776 -0.82960653  0.63337618 ..., -1.00415611 -0.18222916
+  -0.6269536 ]]
+[16] [ 5.] (1, 86474) [&#39;an&#39;] [[ 1.33029258 -0.08263115  0.45543662 ..., -0.40511185 -0.50507581
+  -0.3841382 ]]
+[17] [ 5.] (1, 86474) [&#39;ap&#39;] [[ 1.19241476  0.54163033  1.34188521 ...,  1.10822868  1.19743264
+   0.93059283]]
+[18] [ 5.] (1, 86474) [&#39;bn&#39;] [[ 1.48313212  1.12618577  1.83051646 ...,  1.11976624  0.91444701
+   1.27731931]]
+[19] [ 5.] (1, 86474) [&#39;bp&#39;] [[ 0.86077517 -0.12674382  0.46373707 ...,  0.51276487  0.51723891
+   0.78952396]]
+[20] [ 6.] (1, 86474) [&#39;an&#39;] [[ 0.94603038 -1.10545528  1.14263201 ..., -0.86633009 -0.39000624
+   0.47663927]]
+[21] [ 6.] (1, 86474) [&#39;ap&#39;] [[ 0.35728988  0.46542919  1.3606075  ..., -0.35242572 -0.49045813
+   0.33545816]]
+[22] [ 6.] (1, 86474) [&#39;bn&#39;] [[ 1.66196501 -0.55286545  1.63314819 ...,  0.2965084   0.28804314
+   1.09157836]]
+[23] [ 6.] (1, 86474) [&#39;bp&#39;] [[ 0.88085246 -0.83143687  0.8601439  ...,  0.34967998  1.05338788
+   1.33213997]]
+[24] [ 1.] (1, 86474) [&#39;ac&#39;] [[-0.64142352 -2.48115587  1.05324244 ..., -1.37494361  0.20243503
+   0.26052645]]
+[25] [ 1.] (1, 86474) [&#39;bc&#39;] [[-0.37122604  0.15620713  0.63002902 ...,  1.60572779  2.10578895
+   0.84361285]]
+[26] [ 1.] (1, 86474) [&#39;wc&#39;] [[-0.80333507 -0.28081369  0.00539072 ..., -1.33433306  0.63766068
+  -1.6208328 ]]
+[27] [ 1.] (1, 86474) [&#39;hc&#39;] [[-0.87392193  1.70625544 -1.15682077 ...,  0.01666276  0.5384441
+   1.60841691]]
+[28] [ 2.] (1, 86474) [&#39;ac&#39;] [[-0.08513249  0.17263153 -0.71172804 ...,  0.45738819  0.14868744
+  -0.84534311]]
+[29] [ 2.] (1, 86474) [&#39;bc&#39;] [[ 2.25896668 -1.59122741 -1.47893226 ...,  0.34642631  1.80880332
+   0.01896282]]
+[30] [ 2.] (1, 86474) [&#39;wc&#39;] [[ 0.65650201  0.27303407  0.30443278 ..., -0.92981738 -0.21528637
+  -1.13158858]]
+[31] [ 2.] (1, 86474) [&#39;hc&#39;] [[-0.15134031  0.62307858  0.73455298 ..., -0.26396793  2.06450891
+  -0.07619013]]
+[32] [ 3.] (1, 86474) [&#39;ac&#39;] [[ 0.34048778 -0.026676    0.13970838 ..., -0.58827722  0.75914073
+   0.17452204]]
+[33] [ 3.] (1, 86474) [&#39;bc&#39;] [[ 0.39681312 -0.1583977  -0.37312257 ...,  0.08710402  0.46103945
+  -0.12265284]]
+[34] [ 3.] (1, 86474) [&#39;wc&#39;] [[ 1.86099744  0.46898451  0.9873817  ..., -0.71150821 -0.63492262
+  -0.50565922]]
+[35] [ 3.] (1, 86474) [&#39;hc&#39;] [[ 0.24661015  1.21749079  1.37581527 ...,  1.31917131  1.62823248
+   0.27889478]]
+[36] [ 4.] (1, 86474) [&#39;ac&#39;] [[-0.36372867 -2.55918264 -0.58081043 ...,  1.36124432 -1.20191395
+  -0.81640542]]
+[37] [ 4.] (1, 86474) [&#39;bc&#39;] [[ 0.57079208  0.36804518  1.07356751 ...,  0.27291802  0.05985393
+   1.62173653]]
+[38] [ 4.] (1, 86474) [&#39;wc&#39;] [[ 2.49988818  1.49896836  2.10064721 ...,  0.31969976 -0.64431012
+  -0.15337227]]
+[39] [ 4.] (1, 86474) [&#39;hc&#39;] [[-0.06710877  0.0644979  -0.22242835 ..., -0.2952686   0.51893842
+  -0.39994347]]
+[40] [ 5.] (1, 86474) [&#39;ac&#39;] [[-0.31815419 -1.97949696 -0.99333042 ..., -0.33830431 -0.57487935
+   0.61471081]]
+[41] [ 5.] (1, 86474) [&#39;bc&#39;] [[-0.3717697  -0.08144502 -0.3058506  ..., -0.38288543 -0.92338479
+  -0.35832751]]
+[42] [ 5.] (1, 86474) [&#39;wc&#39;] [[ 0.60253942  1.71866751  0.24536063 ...,  0.42858526 -0.32951945
+   0.96150941]]
+[43] [ 5.] (1, 86474) [&#39;hc&#39;] [[-1.17493427 -1.12529194 -0.2870436  ..., -0.84212917  1.03465247
+  -1.60509574]]
+[44] [ 6.] (1, 86474) [&#39;ac&#39;] [[-1.01847565  1.14914465  0.28264073 ...,  2.56145406  2.55777645
+   1.3811456 ]]
+[45] [ 6.] (1, 86474) [&#39;bc&#39;] [[-0.91761982 -1.37580943 -1.11908245 ...,  0.54708803 -0.00852454
+   0.47814324]]
+[46] [ 6.] (1, 86474) [&#39;wc&#39;] [[-1.93050158  0.20109876 -0.42882034 ...,  0.92208689  0.03815659
+   0.22671308]]
+[47] [ 6.] (1, 86474) [&#39;hc&#39;] [[ 0.52561063 -0.47014028 -0.29203752 ..., -0.52970344 -1.82213187
+  -1.81278825]]
+[48] [ 1.] (1, 86474) [&#39;as&#39;] [[-2.11528087  0.12845778 -2.15664721 ...,  1.41407645 -0.08427614
+   1.8965652 ]]
+[49] [ 1.] (1, 86474) [&#39;bs&#39;] [[  8.68069887e-01  -5.57922244e-01   2.83908128e-04 ...,  -4.27912533e-01
+   -2.88910508e-01   4.13260460e-01]]
+[50] [ 1.] (1, 86474) [&#39;cs&#39;] [[ 0.94492871 -0.13365445  0.42579821 ..., -0.82795691  0.59393626
+  -0.86690432]]
+[51] [ 1.] (1, 86474) [&#39;ss&#39;] [[-0.11275375  0.4783102   0.69548512 ..., -1.1897887  -1.06774116
+  -0.62748122]]
+[52] [ 2.] (1, 86474) [&#39;as&#39;] [[-1.49258554  0.91754109 -0.00963082 ..., -0.9729889  -1.44159186
+  -1.43934977]]
+[53] [ 2.] (1, 86474) [&#39;bs&#39;] [[-0.68306494  1.50432646  2.31593156 ..., -0.49772263  0.0840252
+   0.97283763]]
+[54] [ 2.] (1, 86474) [&#39;cs&#39;] [[-0.39218751  0.43933725  0.55287236 ..., -0.5102421  -0.02893719
+   1.12430465]]
+[55] [ 2.] (1, 86474) [&#39;ss&#39;] [[-1.04190624  1.40608561  1.03259921 ..., -2.00713611 -0.9782185
+  -1.21130705]]
+[56] [ 3.] (1, 86474) [&#39;as&#39;] [[-2.23466325 -1.04361296 -2.29194212 ...,  1.8134948   0.88633466
+   1.33088303]]
+[57] [ 3.] (1, 86474) [&#39;bs&#39;] [[-0.27904618 -0.31459773  0.82984596 ...,  1.09531224  0.33037451
+   1.50842202]]
+[58] [ 3.] (1, 86474) [&#39;cs&#39;] [[ 0.00717536 -0.26104605  0.22295158 ...,  0.22681947  0.80296969
+   0.09059767]]
+[59] [ 3.] (1, 86474) [&#39;ss&#39;] [[-0.16308987 -1.71211851 -0.6308611  ...,  0.01571166  0.5112288
+   0.68205041]]
+[60] [ 4.] (1, 86474) [&#39;as&#39;] [[-0.68166232 -0.49057591 -1.58404136 ...,  0.67926151  2.49283338
+   0.88425481]]
+[61] [ 4.] (1, 86474) [&#39;bs&#39;] [[-1.10198677  0.61640096  0.0137865  ...,  0.94170356  0.21655867
+  -0.16600223]]
+[62] [ 4.] (1, 86474) [&#39;cs&#39;] [[-0.7964403   1.07941663  0.31165776 ...,  1.72124827  1.01518989
+   1.73696434]]
+[63] [ 4.] (1, 86474) [&#39;ss&#39;] [[-1.23517513  0.62736499 -1.6423707  ..., -0.58871073 -1.21120703
+  -0.54110622]]
+[64] [ 5.] (1, 86474) [&#39;as&#39;] [[-0.94787455 -0.04008678 -1.05836356 ..., -0.60024339  1.29900169
+  -1.92754948]]
+[65] [ 5.] (1, 86474) [&#39;bs&#39;] [[-0.23747653  0.70069909  0.83365262 ...,  1.44353545  0.43027276
+   0.53174859]]
+[66] [ 5.] (1, 86474) [&#39;cs&#39;] [[-1.16263175  0.55898964 -0.9485296  ...,  0.28241128 -1.91100061
+   0.02162785]]
+[67] [ 5.] (1, 86474) [&#39;ss&#39;] [[-1.25631273 -1.21047676 -1.57747126 ..., -2.32661772 -1.1491853
+  -0.85192174]]
+[68] [ 6.] (1, 86474) [&#39;as&#39;] [[-0.64687693  1.87639976 -0.33302614 ..., -0.75435132 -0.17541198
+  -1.14658237]]
+[69] [ 6.] (1, 86474) [&#39;bs&#39;] [[ 0.04802357 -1.01954627 -1.58363283 ..., -1.40539515 -0.50858265
+  -0.74268609]]
+[70] [ 6.] (1, 86474) [&#39;cs&#39;] [[-0.70540339  0.56131148 -0.92980981 ..., -0.58964646 -0.0319623
+  -0.95533049]]
+[71] [ 6.] (1, 86474) [&#39;ss&#39;] [[ 0.79910499  1.10186982 -0.5927636  ..., -0.17896539 -0.51028609
+  -0.66443038]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Analyses">Analyses<a class="anchor-link" href="#Analyses">&#194;&#182;</a></h1><p>First, let's whip this data into shape. We want to just look at stereotype patterns.</p>
+<ul>
+<li>an ap bn bp | asian black pos neg</li>
+<li>ac bc | asian black category</li>
+<li>as bs | asian black face</li>
+</ul>
+<p>So let's cut out anything we don't need. To do so, we'll steal from RyMVPA quickly...</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">om</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;ac&#39;</span><span class="p">,</span><span class="s1">&#39;as&#39;</span><span class="p">,</span> <span class="s1">&#39;bc&#39;</span><span class="p">,</span> <span class="s1">&#39;bs&#39;</span><span class="p">,</span> <span class="s1">&#39;cs&#39;</span><span class="p">,</span> <span class="s1">&#39;hc&#39;</span><span class="p">,</span> <span class="s1">&#39;ss&#39;</span><span class="p">,</span> <span class="s1">&#39;wc&#39;</span><span class="p">]:</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">ds</span><span class="o">.</span><span class="n">sa</span><span class="o">.</span><span class="n">targets</span> <span class="o">!=</span> <span class="n">om</span><span class="p">]</span>
+
+<span class="k">print</span> <span class="n">ds</span><span class="o">.</span><span class="n">UT</span><span class="p">,</span><span class="n">ds</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># the resulting dataset is now trimmed</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;an&#39; &#39;ap&#39; &#39;bn&#39; &#39;bp&#39;] (24, 86474)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="RSA">RSA<a class="anchor-link" href="#RSA">&#194;&#182;</a></h1><p>First, let's perform RSA. Here we correlate a theoretical model where valence is what drives pattern similarity. Ie, 'an' and 'bn' are more similar to one another than 'ap' and 'bp'. We correlate this dissimilarity matrix with the representational similarity matrix (wholebrain neural pattern similarity between these conditions). Read up Krieg 2008 for more detail.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">ds_mgs</span> <span class="o">=</span> <span class="n">mean_group_sample</span><span class="p">([</span><span class="s1">&#39;targets&#39;</span><span class="p">])(</span><span class="n">ds</span><span class="p">)</span> <span class="c1"># calculate mean sample (neural pattern) per target</span>
+<span class="k">print</span> <span class="n">ds_mgs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">ds_mgs</span><span class="o">.</span><span class="n">UT</span> <span class="c1"># hows the data look now?</span>
+
+<span class="c1"># make a theoretical model, this is in the order data is in the dataset! look at data targets/UT for an idea. </span>
+<span class="c1"># Usually alphabetical after mean group sampling</span>
+<span class="n">valDM</span> <span class="o">=</span> <span class="n">squareform</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>  
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span> <span class="p">)</span>
+<span class="n">RDM</span> <span class="o">=</span> <span class="n">pdist</span><span class="p">(</span><span class="n">ds_mgs</span><span class="p">,</span><span class="n">metric</span><span class="o">=</span><span class="s1">&#39;correlation&#39;</span><span class="p">)</span> <span class="c1"># get similarity of neural patterns in correlation distance</span>
+<span class="k">print</span> <span class="n">squareform</span><span class="p">(</span><span class="n">RDM</span><span class="p">)</span> <span class="c1">#what do these DMs look like?</span>
+<span class="k">print</span> <span class="n">squareform</span><span class="p">(</span><span class="n">valDM</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">RDM</span><span class="p">,</span><span class="n">valDM</span><span class="p">)</span> <span class="c1">#correlate them!</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(4, 86474) [&#39;an&#39; &#39;ap&#39; &#39;bn&#39; &#39;bp&#39;]
+[[ 0.          0.71989384  0.70512579  0.67112384]
+ [ 0.71989384  0.          0.64340398  0.60258555]
+ [ 0.70512579  0.64340398  0.          0.60428371]
+ [ 0.67112384  0.60258555  0.60428371  0.        ]]
+[[ 0.  1.  0.  1.]
+ [ 1.  0.  1.  0.]
+ [ 0.  1.  0.  1.]
+ [ 1.  0.  1.  0.]]
+[[ 1.          0.06037519]
+ [ 0.06037519  1.        ]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Wowzer. Pearson <em>r</em> = .06.</p>
+<h1 id="Classification">Classification<a class="anchor-link" href="#Classification">&#194;&#182;</a></h1><p>Next guy. Try to remember similarites and differences between classification and RSA, pros and cons, etc. Read up.</p>
+<p>We will here try to see if we can classify above chance these four stereotype conditions. We'll use a linear SVM, and leave-one-out cross-validation scheme. Google those too.</p>
+<p>First, we remove invariant features that might choke up some classifiers sometimes.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">remapper</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">inv_mask</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span>
+<span class="n">sfs</span> <span class="o">=</span> <span class="n">StaticFeatureSelection</span><span class="p">(</span><span class="n">slicearg</span><span class="o">=</span><span class="n">inv_mask</span><span class="p">)</span>
+<span class="n">sfs</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">remapper</span><span class="p">)</span>
+<span class="n">data_m</span> <span class="o">=</span> <span class="n">remove_invariant_features</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">inv_mask</span><span class="p">)</span> <span class="c1"># % of data kept / </span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.828295210121
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now for the meat. Here we create objects holding all our plans, linear SVM, our CV scheme/partitioner, and a little magic to get accuracy back instead of classifier error. Then, we run the analysis!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">cv</span> <span class="o">=</span> <span class="n">CrossValidation</span><span class="p">(</span><span class="n">LinearCSVMC</span><span class="p">(),</span> <span class="n">NFoldPartitioner</span><span class="p">(),</span> 
+                     <span class="n">enable_ca</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;stats&#39;</span><span class="p">],</span> 
+                     <span class="n">errorfx</span><span class="o">=</span><span class="k">lambda</span> <span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">p</span> <span class="o">==</span> <span class="n">t</span><span class="p">))</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">cv</span><span class="p">(</span><span class="n">data_m</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">samples</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_m</span><span class="o">.</span><span class="n">UT</span><span class="p">))</span> <span class="c1"># % above chance accuracy</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dataset: 6x1@float64, &lt;sa: cvfolds&gt; stats: mean=0.333333 std=0.186339 var=0.0347222 min=0 max=0.5
+
+0.0833333333333
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>8% of chance, woooooooah. How about, like, locally distributed across the brain dome?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Searchlights">Searchlights<a class="anchor-link" href="#Searchlights">&#194;&#182;</a></h1><p>Searchlights. Check out Kriegeskorte (circa 2005 - 2009?). This takes forever-ever, but, here's the code.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">if</span> <span class="n">__debug__</span><span class="p">:</span> <span class="n">debug</span><span class="o">.</span><span class="n">active</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">&quot;SLC&quot;</span><span class="p">]</span> <span class="c1"># print progress</span>
+<span class="c1"># take out invariant features</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;586&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">remapper</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">inv_mask</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">samples</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span>
+<span class="n">sfs</span> <span class="o">=</span> <span class="n">StaticFeatureSelection</span><span class="p">(</span><span class="n">slicearg</span><span class="o">=</span><span class="n">inv_mask</span><span class="p">)</span>
+<span class="n">sfs</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">remapper</span><span class="p">)</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">remove_invariant_features</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+<span class="n">cv</span><span class="o">=</span><span class="n">CrossValidation</span><span class="p">(</span><span class="n">LinearCSVMC</span><span class="p">(),</span> <span class="n">NFoldPartitioner</span><span class="p">(),</span> 
+                   <span class="n">enable_ca</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;stats&#39;</span><span class="p">],</span> 
+                   <span class="n">errorfx</span><span class="o">=</span><span class="k">lambda</span> <span class="n">p</span><span class="p">,</span> <span class="n">t</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">p</span> <span class="o">==</span> <span class="n">t</span><span class="p">))</span>
+
+<span class="n">sl</span> <span class="o">=</span> <span class="n">sphere_searchlight</span><span class="p">(</span><span class="n">cv</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">postproc</span><span class="o">=</span><span class="n">mean_sample</span><span class="p">())</span>
+<span class="n">slr</span> <span class="o">=</span> <span class="n">sl</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[SLC] DBG:                         Starting computing block for 71626 elements
+[SLC] DBG:                         +0:00:03 _______[0%]_______ -4:37:33  ROI 14 (14/71626), 55 features</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyboardInterrupt</span>                         Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-4-2925c95eed80&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">     12</span> 
+<span class="ansi-green-intense-fg ansi-bold">     13</span> sl <span class="ansi-blue-fg">=</span> sphere_searchlight<span class="ansi-blue-fg">(</span>cv<span class="ansi-blue-fg">,</span> radius<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">,</span> postproc<span class="ansi-blue-fg">=</span>mean_sample<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">---&gt; 14</span><span class="ansi-red-fg"> </span>slr <span class="ansi-blue-fg">=</span> sl<span class="ansi-blue-fg">(</span>ds<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/Users/rystoli/anaconda/lib/python2.7/site-packages/mvpa2/base/learner.pyc</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, ds)</span>
+<span class="ansi-green-intense-fg ansi-bold">    257</span>                                    <span class="ansi-blue-fg">&#34;used and auto training is disabled.&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    258</span>                                    % str(self))
+<span class="ansi-green-fg">--&gt; 259</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> super<span class="ansi-blue-fg">(</span>Learner<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__call__<span class="ansi-blue-fg">(</span>ds<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    260</span> 
+<span class="ansi-green-intense-fg ansi-bold">    261</span> 
+
+<span class="ansi-green-fg">/Users/rystoli/anaconda/lib/python2.7/site-packages/mvpa2/base/node.pyc</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, ds)</span>
+<span class="ansi-green-intense-fg ansi-bold">    119</span> 
+<span class="ansi-green-intense-fg ansi-bold">    120</span>         self<span class="ansi-blue-fg">.</span>_precall<span class="ansi-blue-fg">(</span>ds<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 121</span><span class="ansi-red-fg">         </span>result <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_call<span class="ansi-blue-fg">(</span>ds<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    122</span>         result <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_postcall<span class="ansi-blue-fg">(</span>ds<span class="ansi-blue-fg">,</span> result<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    123</span> 
+
+<span class="ansi-green-fg">/Users/rystoli/anaconda/lib/python2.7/site-packages/mvpa2/measures/searchlight.pyc</span> in <span class="ansi-cyan-fg">_call</span><span class="ansi-blue-fg">(self, dataset)</span>
+<span class="ansi-green-intense-fg ansi-bold">    141</span> 
+<span class="ansi-green-intense-fg ansi-bold">    142</span>         <span class="ansi-red-fg"># pass to subclass</span>
+<span class="ansi-green-fg">--&gt; 143</span><span class="ansi-red-fg">         </span>results <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_sl_call<span class="ansi-blue-fg">(</span>dataset<span class="ansi-blue-fg">,</span> roi_ids<span class="ansi-blue-fg">,</span> nproc<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    144</span> 
+<span class="ansi-green-intense-fg ansi-bold">    145</span>         <span class="ansi-green-fg">if</span> <span class="ansi-blue-fg">&#39;mapper&#39;</span> <span class="ansi-green-fg">in</span> dataset<span class="ansi-blue-fg">.</span>a<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/Users/rystoli/anaconda/lib/python2.7/site-packages/mvpa2/measures/searchlight.pyc</span> in <span class="ansi-cyan-fg">_sl_call</span><span class="ansi-blue-fg">(self, dataset, roi_ids, nproc)</span>
+<span class="ansi-green-intense-fg ansi-bold">    360</span>             <span class="ansi-red-fg"># otherwise collect the results in an 1-item list</span>
+<span class="ansi-green-intense-fg ansi-bold">    361</span>             p_results = [
+<span class="ansi-green-fg">--&gt; 362</span><span class="ansi-red-fg">                     self._proc_block(roi_ids, dataset, self.__datameasure)]
+</span><span class="ansi-green-intense-fg ansi-bold">    363</span> 
+<span class="ansi-green-intense-fg ansi-bold">    364</span>         <span class="ansi-red-fg"># Finally collect and possibly process results</span>
+
+<span class="ansi-green-fg">/Users/rystoli/anaconda/lib/python2.7/site-packages/mvpa2/measures/searchlight.pyc</span> in <span class="ansi-cyan-fg">_proc_block</span><span class="ansi-blue-fg">(self, block, ds, measure, seed, iblock)</span>
+<span class="ansi-green-intense-fg ansi-bold">    456</span> 
+<span class="ansi-green-intense-fg ansi-bold">    457</span>             <span class="ansi-red-fg"># compute the datameasure and store in results</span>
+<span class="ansi-green-fg">--&gt; 458</span><span class="ansi-red-fg">             </span>res <span class="ansi-blue-fg">=</span> measure<span class="ansi-blue-fg">(</span>roi<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    459</span> 
+<span class="ansi-green-intense-fg ansi-bold">    460</span>             <span class="ansi-green-fg">if</span> assure_dataset <span class="ansi-green-fg">and</span> <span class="ansi-green-fg">not</span> is_datasetlike<span class="ansi-blue-fg">(</span>res<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/Users/rystoli/anaconda/lib/python2.7/site-packages/mvpa2/base/learner.pyc</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, ds)</span>
+<span class="ansi-green-intense-fg ansi-bold">    257</span>                                    <span class="ansi-blue-fg">&#34;used and auto training is disabled.&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    258</span>                                    % str(self))
+<span class="ansi-green-fg">--&gt; 259</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> super<span class="ansi-blue-fg">(</span>Learner<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__call__<span class="ansi-blue-fg">(</span>ds<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    260</span> 
+<span class="ansi-green-intense-fg ansi-bold">    261</span> 
+
+<span class="ansi-green-fg">/Users/rystoli/anaconda/lib/python2.7/site-packages/mvpa2/base/node.pyc</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, ds)</span>
+<span class="ansi-green-intense-fg ansi-bold">    119</span> 
+<span class="ansi-green-intense-fg ansi-bold">    120</span>         self<span class="ansi-blue-fg">.</span>_precall<span class="ansi-blue-fg">(</span>ds<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 121</span><span class="ansi-red-fg">         </span>result <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_call<span class="ansi-blue-fg">(</span>ds<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    122</span>         result <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_postcall<span class="ansi-blue-fg">(</span>ds<span class="ansi-blue-fg">,</span> result<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    123</span> 
+
+<span class="ansi-green-fg">/Users/rystoli/anaconda/lib/python2.7/site-packages/mvpa2/measures/base.pyc</span> in <span class="ansi-cyan-fg">_call</span><span class="ansi-blue-fg">(self, ds)</span>
+<span class="ansi-green-intense-fg ansi-bold">    495</span>         <span class="ansi-red-fg"># always untrain to wipe out previous stats</span>
+<span class="ansi-green-intense-fg ansi-bold">    496</span>         self<span class="ansi-blue-fg">.</span>untrain<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-fg">--&gt; 497</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> super<span class="ansi-blue-fg">(</span>CrossValidation<span class="ansi-blue-fg">,</span> self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>_call<span class="ansi-blue-fg">(</span>ds<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    498</span> 
+<span class="ansi-green-intense-fg ansi-bold">    499</span> 
+
+<span class="ansi-green-fg">/Users/rystoli/anaconda/lib/python2.7/site-packages/mvpa2/measures/base.pyc</span> in <span class="ansi-cyan-fg">_call</span><span class="ansi-blue-fg">(self, ds)</span>
+<span class="ansi-green-intense-fg ansi-bold">    316</span>         <span class="ansi-red-fg"># run the node an all generated datasets</span>
+<span class="ansi-green-intense-fg ansi-bold">    317</span>         results <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-fg">--&gt; 318</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">for</span> i<span class="ansi-blue-fg">,</span> sds <span class="ansi-green-fg">in</span> enumerate<span class="ansi-blue-fg">(</span>generator<span class="ansi-blue-fg">.</span>generate<span class="ansi-blue-fg">(</span>ds<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    319</span>             <span class="ansi-green-fg">if</span> __debug__<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    320</span>                 debug(&#39;REPM&#39;, &#34;%d-th iteration of %s on %s&#34;,
+
+<span class="ansi-green-fg">/Users/rystoli/anaconda/lib/python2.7/site-packages/mvpa2/generators/partition.pyc</span> in <span class="ansi-cyan-fg">generate</span><span class="ansi-blue-fg">(self, ds)</span>
+<span class="ansi-green-intense-fg ansi-bold">    117</span>             pattr <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>get_partitions_attr<span class="ansi-blue-fg">(</span>ds<span class="ansi-blue-fg">,</span> parts<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    118</span>             <span class="ansi-red-fg"># shallow copy of the dataset</span>
+<span class="ansi-green-fg">--&gt; 119</span><span class="ansi-red-fg">             </span>pds <span class="ansi-blue-fg">=</span> ds<span class="ansi-blue-fg">.</span>copy<span class="ansi-blue-fg">(</span>deep<span class="ansi-blue-fg">=</span>False<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    120</span>             pds<span class="ansi-blue-fg">.</span>sa<span class="ansi-blue-fg">[</span>self<span class="ansi-blue-fg">.</span>get_space<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> pattr
+<span class="ansi-green-intense-fg ansi-bold">    121</span>             pds<span class="ansi-blue-fg">.</span>a<span class="ansi-blue-fg">[</span>self<span class="ansi-blue-fg">.</span>get_space<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">+</span> <span class="ansi-blue-fg">&#34;_set&#34;</span><span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> iparts
+
+<span class="ansi-green-fg">/Users/rystoli/anaconda/lib/python2.7/site-packages/mvpa2/base/dataset.pyc</span> in <span class="ansi-cyan-fg">copy</span><span class="ansi-blue-fg">(self, deep, sa, fa, a, memo)</span>
+<span class="ansi-green-intense-fg ansi-bold">    375</span>                              sa<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">.</span>sa<span class="ansi-blue-fg">.</span>copy<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">=</span>sa<span class="ansi-blue-fg">,</span> deep<span class="ansi-blue-fg">=</span>deep<span class="ansi-blue-fg">,</span> memo<span class="ansi-blue-fg">=</span>memo<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    376</span>                              fa<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">.</span>fa<span class="ansi-blue-fg">.</span>copy<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">=</span>fa<span class="ansi-blue-fg">,</span> deep<span class="ansi-blue-fg">=</span>deep<span class="ansi-blue-fg">,</span> memo<span class="ansi-blue-fg">=</span>memo<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span>
+<span class="ansi-green-fg">--&gt; 377</span><span class="ansi-red-fg">                              a=self.a.copy(a=a, deep=deep, memo=memo))
+</span><span class="ansi-green-intense-fg ansi-bold">    378</span>         <span class="ansi-green-fg">if</span> __debug__<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    379</span>             debug(&#39;DS_&#39;, &#34;Return dataset copy %s of source %s&#34;
+
+<span class="ansi-green-fg">/Users/rystoli/anaconda/lib/python2.7/site-packages/mvpa2/base/collections.pyc</span> in <span class="ansi-cyan-fg">copy</span><span class="ansi-blue-fg">(self, deep, a, memo)</span>
+<span class="ansi-green-intense-fg ansi-bold">    368</span>         <span class="ansi-red-fg">#     desirable here?</span>
+<span class="ansi-green-intense-fg ansi-bold">    369</span>         anew.update(aorig, copyvalues=deep and &#39;deep&#39; or &#39;shallow&#39;,
+<span class="ansi-green-fg">--&gt; 370</span><span class="ansi-red-fg">                     memo=memo)
+</span><span class="ansi-green-intense-fg ansi-bold">    371</span> 
+<span class="ansi-green-intense-fg ansi-bold">    372</span>         <span class="ansi-green-fg">if</span> __debug__ <span class="ansi-green-fg">and</span> __mvpadebug__ <span class="ansi-green-fg">and</span> <span class="ansi-blue-fg">&#39;COL&#39;</span> <span class="ansi-green-fg">in</span> debug<span class="ansi-blue-fg">.</span>active<span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">/Users/rystoli/anaconda/lib/python2.7/site-packages/mvpa2/base/collections.pyc</span> in <span class="ansi-cyan-fg">update</span><span class="ansi-blue-fg">(self, source, copyvalues, memo)</span>
+<span class="ansi-green-intense-fg ansi-bold">    473</span>                     self<span class="ansi-blue-fg">[</span>k<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> v
+<span class="ansi-green-intense-fg ansi-bold">    474</span>                 <span class="ansi-green-fg">elif</span> copyvalues <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;shallow&#39;</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 475</span><span class="ansi-red-fg">                     </span>self<span class="ansi-blue-fg">[</span>k<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> copy<span class="ansi-blue-fg">.</span>copy<span class="ansi-blue-fg">(</span>v<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    476</span>                 <span class="ansi-green-fg">elif</span> copyvalues <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">&#39;deep&#39;</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    477</span>                     self<span class="ansi-blue-fg">[</span>k<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> copy<span class="ansi-blue-fg">.</span>deepcopy<span class="ansi-blue-fg">(</span>v<span class="ansi-blue-fg">,</span> memo<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/Users/rystoli/anaconda/lib/python2.7/copy.pyc</span> in <span class="ansi-cyan-fg">copy</span><span class="ansi-blue-fg">(x)</span>
+<span class="ansi-green-intense-fg ansi-bold">     78</span>     copier <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>cls<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;__copy__&#34;</span><span class="ansi-blue-fg">,</span> None<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     79</span>     <span class="ansi-green-fg">if</span> copier<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 80</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> copier<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     81</span> 
+<span class="ansi-green-intense-fg ansi-bold">     82</span>     reductor <span class="ansi-blue-fg">=</span> dispatch_table<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span>cls<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/Users/rystoli/anaconda/lib/python2.7/site-packages/mvpa2/base/collections.pyc</span> in <span class="ansi-cyan-fg">__copy__</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">     74</span>         copied <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>__class__<span class="ansi-blue-fg">(</span>name<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">.</span>name<span class="ansi-blue-fg">,</span> doc<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">.</span>__doc__<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     75</span>         <span class="ansi-red-fg"># just get a view of the old data!</span>
+<span class="ansi-green-fg">---&gt; 76</span><span class="ansi-red-fg">         </span>copied<span class="ansi-blue-fg">.</span>value <span class="ansi-blue-fg">=</span> copy<span class="ansi-blue-fg">.</span>copy<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>value<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     77</span>         <span class="ansi-green-fg">return</span> copied
+<span class="ansi-green-intense-fg ansi-bold">     78</span> 
+
+<span class="ansi-green-fg">/Users/rystoli/anaconda/lib/python2.7/copy.pyc</span> in <span class="ansi-cyan-fg">copy</span><span class="ansi-blue-fg">(x)</span>
+<span class="ansi-green-intense-fg ansi-bold">     78</span>     copier <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>cls<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#34;__copy__&#34;</span><span class="ansi-blue-fg">,</span> None<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     79</span>     <span class="ansi-green-fg">if</span> copier<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 80</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> copier<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     81</span> 
+<span class="ansi-green-intense-fg ansi-bold">     82</span>     reductor <span class="ansi-blue-fg">=</span> dispatch_table<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span>cls<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">/Users/rystoli/anaconda/lib/python2.7/site-packages/mvpa2/base/node.pyc</span> in <span class="ansi-cyan-fg">__copy__</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">    331</span>     <span class="ansi-green-fg">def</span> __copy__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    332</span>         <span class="ansi-red-fg"># XXX how do we safely and exhaustively copy a node?</span>
+<span class="ansi-green-fg">--&gt; 333</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>__class__<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">[</span>copy<span class="ansi-blue-fg">.</span>copy<span class="ansi-blue-fg">(</span>n<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">for</span> n <span class="ansi-green-fg">in</span> self<span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    334</span> 
+<span class="ansi-green-intense-fg ansi-bold">    335</span> 
+
+<span class="ansi-green-fg">/Users/rystoli/anaconda/lib/python2.7/copy.pyc</span> in <span class="ansi-cyan-fg">copy</span><span class="ansi-blue-fg">(x)</span>
+<span class="ansi-green-intense-fg ansi-bold">     94</span>                 <span class="ansi-green-fg">raise</span> Error<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;un(shallow)copyable object of type %s&#34;</span> <span class="ansi-blue-fg">%</span> cls<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     95</span> 
+<span class="ansi-green-fg">---&gt; 96</span><span class="ansi-red-fg">     </span><span class="ansi-green-fg">return</span> _reconstruct<span class="ansi-blue-fg">(</span>x<span class="ansi-blue-fg">,</span> rv<span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     97</span> 
+<span class="ansi-green-intense-fg ansi-bold">     98</span> 
+
+<span class="ansi-green-fg">/Users/rystoli/anaconda/lib/python2.7/copy.pyc</span> in <span class="ansi-cyan-fg">_reconstruct</span><span class="ansi-blue-fg">(x, info, deep, memo)</span>
+<span class="ansi-green-intense-fg ansi-bold">    314</span>     callable<span class="ansi-blue-fg">,</span> args <span class="ansi-blue-fg">=</span> info<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">:</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">    315</span>     <span class="ansi-green-fg">if</span> n <span class="ansi-blue-fg">&gt;</span> <span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 316</span><span class="ansi-red-fg">         </span>state <span class="ansi-blue-fg">=</span> info<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">]</span>
+<span class="ansi-green-intense-fg ansi-bold">    317</span>     <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    318</span>         state <span class="ansi-blue-fg">=</span> None
+
+<span class="ansi-red-fg">KeyboardInterrupt</span>: </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So I'm not waiting for that, but, from that, we go here:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[154]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">sfs</span><span class="o">.</span><span class="n">reverse</span><span class="p">(</span><span class="n">slr</span><span class="p">)</span><span class="o">.</span><span class="n">samples</span> <span class="o">-</span> <span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">UT</span><span class="p">))</span> <span class="c1"># remove chance, and get back in its pre feature selection form</span>
+<span class="k">print</span> <span class="n">res</span> <span class="c1"># check it</span>
+
+<span class="c1"># save it, and look in afni</span>
+<span class="n">nimg</span> <span class="o">=</span> <span class="n">map2nifti</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ds</span><span class="p">,</span><span class="n">dataset</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;586&#39;</span><span class="p">])</span>
+<span class="n">nimg</span><span class="o">.</span><span class="n">to_filename</span><span class="p">(</span><span class="s1">&#39;586_stereoclass.nii&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;Dataset: 1x378@float64, &lt;sa: cvfolds&gt;, &lt;fa: center_ids&gt;, &lt;a: mapper&gt;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Well that does it! You can now look at the results in AFNI. You can also do group level tests, etc. However, we will save this for later when we move into RyMVPA, which takes all of this code and wraps it up into single functions.</p>
+<p>Also, we will soon work to get python to display plots via nilearn:</p>
+<p><img src="http://nilearn.github.io/_images/sphx_glr_plot_neurovault_meta_analysis_thumb.png" alt="image.png"></p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+</body>
+					<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li>&copy; Ryan M Stolier. All rights reserved?</li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollzer.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
