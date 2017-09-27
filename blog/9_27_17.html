@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<!--
+	Read Only by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Ryan M Stolier | New York University</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<link rel="stylesheet" href="../assets/ai/css/academicons.css"/>
+		<link rel="icon" type="image/png" href="../images/favicon.png" sizes="32x32">
+
+	</head>
+	<body>
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<span class="image avatar"><img src="../images/avatar.jpg" alt="" /></span>
+					<h1 id="logo">Ryan M. Stolier</h1>
+					
+				</header>
+				<nav id="nav">
+					<ul>
+						<li><a href="../index.html" class="active">Back</a></li>
+					</ul>
+				</nav>
+				<footer>
+					<ul class="icons">
+					<li><font size="6"><a href="CV-Stolier_3_8_17.pdf">CV</a></font></li>
+					<li><a href="https://scholar.google.com/citations?user=nDW764QAAAAJ&hl=en" class="ai ai-google-scholar-square ai-2x"></a></li>
+						<li><a href="https://twitter.com/rystoli" class="icon fa-twitter fa-2x"><span class="label">Twitter</span></a></li>
+						<li><a href="https://github.com/rystoli/RyMVPA" class="icon fa-github fa-2x"><span class="label">Github</span></a></li>
+						<li><a href="mailto:rystoli@nyu.edu" class="icon fa-envelope fa-2x"><span class="label">Email</span></a></li>
+					</ul>
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="container">
+								<a href="../index.html">Back to start</a><br><br>
+<h2>Easy Installation for PyMVPA</h2>
+
+<p>We recently held a workshop for PyMVPA, in which I was quickly reminded that installation is hell outside of Linux (Windows, Mac OS). From issues with Macports, inconvenience of virtual machines, and various dependency debuggings that come with the Py 2.6 Windows installer and source code, it just is not too pleasant at the moment for most folk I talk to. So, we found 2-minute, easy solutions that worked across a bunch of our machines. See instructions below, and some troubleshooting notes as well.</p> 
+
+<h3>Mac OS</h3>
+<ol>
+	<li><a href="https://www.anaconda.com/download/">Download and install Anaconda for Python 2.7 for Mac from Anaconda site.</a></li>
+	<li>Install PyMVPA with Anaconda:
+		<br><code>conda install -c bioconda pymvpa</code>
+		<br>*</i><a href="https://anaconda.org/search?q=pymvpa">Alternatively, search the Anaconda cloud for other versions if you run into problems.</a></li>
+</ol>
+
+<h3>Windows</h3>
+<ol>
+	<li><a href="https://www.anaconda.com/download/">Download and install Anaconda for Python 2.7 for Windows.</a></li>
+	<li><a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#marisa-trie">Download the PyMVPA 'wheel' file 2.6.1 for python 2.7 (32 vs 64 bit depending on your machine).</a> 
+<br>E.g., pymvpa2‑2.6.1‑cp27‑cp27m‑win_amd64.whl (version 2.6.1, Python 2.7, 64 bit)
+<br><i>Backups for <a href="../files/pymvpa2-2.6.1-cp27-cp27m-win32.whl" download>32-bit</a> and <a href="../files/pymvpa2-2.6.1-cp27-cp27m-win_amd64.whl" download>64-bit</a> <-- here.</i></li>
+	<li>Install the file with pip via the 'Anaconda Prompt' runner that was setup when you installed Anaconda (search for it if necessary):
+		<br><pre><code>pip install '[filepath to .whl file]'
+# for example, assuming it is in the working directory:
+pip install pymvpa2‑2.6.1‑cp27‑cp27m‑win_amd64.whl</code></pre>
+<i>*If having trouble finding the prompt, it should just be cmd.exe (search 'cmd') executing something like: %windir%\system32\cmd.exe "/K" C:\ProgramData\Anaconda2\Scripts\activate.bat C:\ProgramData\Anaconda2 . So dig around there and online as to how to initiate the prompt with access to pip.</i></li>
+</ol>
+
+<h3>Additional tips:</h3>
+<ul>
+	<li>If you originally had a different version of Python installed, see <a href="https://conda.io/docs/user-guide/tasks/manage-python.html">this link</a> about using Anaconda to make an environment in Python 2.7 in which you can use PyMVPA. Remember you need to activate this environment in each terminal session any time you want to use PyMVPA, or better, set it as your environment because Python 3 is stoopid.</li>
+	<li>Anaconda may not have set up all dependencies, such as nibabel (I hear this happens on Mac). So, if you run into dependency import problems, install all these packages as well (not sure if they can both come from either conda or pip, so...):
+<pre><code>conda install mayavi pyqt matplotlib numpy scipy ipython statsmodels networkx
+# and....
+pip install scikit-learn nipy nibabel pycortex pymc
+# some people had trouble with this specific set on Macs:
+conda install -c conda-forge libsvm
+conda install -c conda-forge nibabel</code></pre></li>
+<li>Alternatively, things might not be up-to-date, causing problems! In which case, update them (don't update all if you need certain ones not updated!). Google updating Anaconda and Pip, I'd provide here but you should check most proper way to do this.</li>
+</ul>
+
+<p>Hope that helps! Please contact me if you run into problems, and also if you solve any of your problems so we can put a note here. Thanks!</p>
+
+								</div>
+							</section>
+				
+
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li>&copy; Ryan M Stolier. All rights reserved?</li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollzer.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
