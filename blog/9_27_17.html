@@ -61,8 +61,10 @@
 <h3>Mac OS</h3>
 <ol>
 	<li><a href="https://www.anaconda.com/download/">Download and install Anaconda for Python 2.7 for Mac from Anaconda site.</a></li>
-	<li>Install PyMVPA with Anaconda:
-		<br><code>conda install -c bioconda pymvpa</code>
+	<li>Install PyMVPA with Anaconda: (update: new conda call
+        <br><code>conda install -c bioconda pymvpa</code>
+        <br><i>update: new conda call below, haven't tested</i>
+		<br><code>conda install pymvpa2</code>
 		<br>*</i><a href="https://anaconda.org/search?q=pymvpa">Alternatively, search the Anaconda cloud for other versions if you run into problems.</a></li>
 *<i>See notes at the bottom for some common debugging solutions</i>
 </ol>
@@ -79,6 +81,8 @@
 # for example, assuming it is in the working directory:
 pip install pymvpa2‑2.6.1‑cp27‑cp27m‑win_amd64.whl</code></pre>
 <i>*If having trouble finding the prompt, it should just be cmd.exe (search 'cmd') executing something like: %windir%\system32\cmd.exe "/K" C:\ProgramData\Anaconda2\Scripts\activate.bat C:\ProgramData\Anaconda2 . So dig around there and online as to how to initiate the prompt with access to pip.</i></li>
+<li>Alternatively, maybe, conda:
+<br><code>conda install pymvpa2</code></li>
 </ol>
 
 <h3>Additional tips:</h3>
