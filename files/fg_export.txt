@@ -1,0 +1,79 @@
+#----------------------------------------------------
+#this extracts facegen face values from .fg files
+#----------------------------------------------------
+#need to use newer SDK
+#in command line, from unzipped SDK folder, navigate to /bin/win/vs10/64/release/ or correct bits/vs version
+#should have something like fg3.exe in it
+
+#then from command line these commands each print out one txt file per parameter per fg file
+#probably a way to wrap these into a single loop and collect a list of parameters, printing out a single text file per .fg file processed
+
+#shape
+for %F in (*.fg) do (for /L %G in (0,1,60) do fg3 controls %F sliderShape symm %G > %F%GShape.txt)
+#color
+for %F in (*.fg) do (for /L %G in (0,1,35) do fg3 controls %F sliderColor %G > %F%GColor.txt)
+#gender
+for %F in (*.fg) do fg3 controls %F gender shape > %Fgendershape.txt
+for %F in (*.fg) do fg3 controls %F gender color > %Fgendercolor.txt
+#race
+for %F in (*.fg) do fg3 controls %F race all african > %FRaceAFA.txt
+for %F in (*.fg) do fg3 controls %F race all european > %FRaceAE.txt
+for %F in (*.fg) do fg3 controls %F race all eastAsian > %FRaceAEA.txt
+for %F in (*.fg) do fg3 controls %F race all southAsian > %FRaceASA.txt
+for %F in (*.fg) do fg3 controls %F race african european > %FRaceAFE.txt
+for %F in (*.fg) do fg3 controls %F race african eastAsian > %FRaceAFEA.txt
+for %F in (*.fg) do fg3 controls %F race african southAsian > %FRaceAFSA.txt
+for %F in (*.fg) do fg3 controls %F race european eastAsian > %FRaceEEA.txt
+for %F in (*.fg) do fg3 controls %F race european southAsian > %FRaceESA.txt
+for %F in (*.fg) do fg3 controls %F race eastAsian southAsian > %FRaceEASA.txt
+#age
+for %F in (*.fg) do fg3 controls %F age shape > %Fageshape.txt
+for %F in (*.fg) do fg3 controls %F age color > %Fagecolor.txt
+#asymmetry
+for %F in (*.fg) do fg3 controls %F asymmetry > %Fasymmetry.txt
+#caricature
+for %F in (*.fg) do fg3 controls %F caricature all shape > %Fallcarshape.txt
+for %F in (*.fg) do fg3 controls %F caricature all color > %Fallcarcolor.txt
+for %F in (*.fg) do fg3 controls %F caricature african shape > %Fafricancarshape.txt
+for %F in (*.fg) do fg3 controls %F caricature african color > %Fafricancarcolor.txt
+for %F in (*.fg) do fg3 controls %F caricature european shape > %Feuropeancarshape.txt
+for %F in (*.fg) do fg3 controls %F caricature european color > %Feuropeancarcolor.txt
+for %F in (*.fg) do fg3 controls %F caricature eastAsian shape > %FeastAsiancarshape.txt
+for %F in (*.fg) do fg3 controls %F caricature eastAsian color > %FeastAsiancarcolor.txt
+for %F in (*.fg) do fg3 controls %F caricature southAsian shape > %FsouthAsiancarshape.txt
+for %F in (*.fg) do fg3 controls %F caricature southAsian color > %FsouthAsiancarcolor.txt
+
+
+
+----------------------------------------------------
+#this then concats one txt per face
+#in bash
+for f in *.fg; do cat ${s}*.txt > ${s:0:${#s}-3}_all.txt; done
+
+
+----------------------------------------------------
+#then with all of the txts per fg file in one folder, run this python code to reorganize and clean each, then make a csv out of the
+
+import numpy
+import glob as glob
+
+
+paths = glob.glob("*.txt")
+files = [paths[i].split('/')[-1] for i,path in enumerate(paths)]
+
+
+for file_i,fname in enumerate(files):
+    lines = open(fname).read().splitlines()
+    lines = [i for i in lines if i != '']
+    linesplit = [i.split(' ') for i in lines]
+    for i,j in enumerate(linesplit):
+        if j[-1] == 'years': linesplit[i] = linesplit[i][0:-1]
+        elif j[-1][0] == '(': linesplit[i][-1] = linesplit[i][-1][1:-1]
+    linesdata = [["".join(i[:-1]),float(i[-1])] for i in linesplit]
+    linesfinal = [[fname.split(".")[0],i[0],i[1]] for i in linesdata]
+    numpy.savetxt("%s.csv" % (fname.split(".")[0]), linesfinal, delimiter=",", fmt='%s')
+    
+---------------------------------------------------------------------
+#then run this to combine them
+cat *.csv > all_fgstats.csv
+

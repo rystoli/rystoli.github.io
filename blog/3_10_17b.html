@@ -53,10 +53,30 @@
 								<a href="../index.html">Back to start</a><br><br>
 <h2>Facegen SDK .FG file feature export to CSV</h2>
 
-<p>Facegen allows the exporting of feature values across a wide range of facial features, including sex, race, age, symmetry, averageness per race, and many many shape and pigment cues. These can be used for many things, such as analyzing their relations to behavior (e.g., <a href="http://www.sciencedirect.com/science/article/pii/S0022103112001758">Colleen Carpinella and Kerri Johnson found relations in gender cues to politician preferences, 2013</a>). You can also build visual models of face similarity based on cues, or descriptively explore cues and associations of various faces. These faces can be ones you created, or ones you scanned into the FaceGen Modeller software (e.g., used by Carpinella &amp; Johnson, 2013). Pretty cool.</p><p>Anyhow, I had a brain hemorrhage trying to figure this out, so, here's some easy code you can implement on your FaceGen files (.fg) to extract all of these features, and plop them into a CSV.&nbsp;</p><p>Requirements:</p><ul><li>FaceGen Modeller</li><li>The newer FaceGen SDK</li><li>Your .fg files in one directory</li></ul><p><a href="https://github.com/rystoli/psychtools/blob/master/fg_export.txt">Script below with notes here</a>.</p><p>To extract the .FG feature values, in the command line, from the unzipped SDK folder, navigate to /bin/win/vs10/64/release/ or your correct bits/vs version, which should have something like fg3.exe in it. Then, from command line, these commands each print out one txt file per parameter per fg file (assuming the FG files are in the same current folder you are in, so move them there, or change the filepaths appropriately):</p><p>First, in batch:</p>
+<p>Facegen allows the exporting of feature values across a wide range of facial features, including sex, race, age, symmetry, averageness per race, and many many shape and pigment cues. These can be used for many things, such as analyzing their relations to behavior (e.g., <a href="http://www.sciencedirect.com/science/article/pii/S0022103112001758">Colleen Carpinella and Kerri Johnson found relations in gender cues to politician preferences, 2013</a>). You can also build visual models of face similarity based on cues, or descriptively explore cues and associations of various faces. These faces can be ones you created, or ones you scanned into the FaceGen Modeller software (e.g., used by Carpinella &amp; Johnson, 2013). Pretty cool.</p>
+
+<p>Anyhow, I had a brain hemorrhage trying to figure this out, so, here's some easy code you can implement on your FaceGen files (.fg) to extract all of these features, and plop them into a CSV.&nbsp;</p>
+
+<p>Requirements:</p><ul>
+	<li>FaceGen Modeller</li>
+	<li><a href="https://facegen.com/sdk.htm">The newer FaceGen SDK (contact them if unsure which you have)</a></li>
+	<li>Your .fg files in one directory</li>
+</ul>
+
+<p><a href="../files/fg_export.txt">Script mentioned below, with notes here</a>.</p>
+
+
+<p>To extract the .FG feature values, in the command line, from the unzipped SDK folder, navigate to /bin/win/vs10/64/release/ or your correct bits/vs version, which should have something like fg3.exe in it. Then, from command line, these commands each print out one txt file per parameter per fg file (assuming the FG files are in the same current folder you are in, so move them there, or change the filepaths appropriately):</p>
+
+<p>First, in batch:</p>
+
+
 <hr>
 <p>Shape:</p>
-<pre><code>for %F in (*.fg) do (for /L %G in (0,1,60) do fg3 controls %F sliderShape symm %G &gt; %F%GShape.txt)</code></pre><p>Pigment:</p>
+
+<pre><code>for %F in (*.fg) do (for /L %G in (0,1,60) do fg3 controls %F sliderShape symm %G &gt; %F%GShape.txt)</code></pre>
+
+<p>Pigment:</p>
 <pre><code>for %F in (*.fg) do (for /L %G in (0,1,35) do fg3 controls %F sliderColor %G &gt; %F%GColor.txt)</code></pre><p>Gender:</p>
 <pre><code>for %F in (*.fg) do fg3 controls %F gender shape &gt; %Fgendershape.txt`
 for %F in (*.fg) do fg3 controls %F gender color &gt; %Fgendercolor.txt</code></pre><p>Race:</p>
