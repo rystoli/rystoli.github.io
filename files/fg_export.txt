@@ -48,7 +48,7 @@ for %F in (*.fg) do fg3 controls %F caricature southAsian color > %FsouthAsianca
 ----------------------------------------------------
 #this then concats one txt per face
 #in bash
-for f in *.fg; do cat ${s}*.txt > ${s:0:${#s}-3}_all.txt; done
+for f in *.fg; do cat ${f}*.txt > ${f:0:${#f}-3}_all.txt; done
 
 
 ----------------------------------------------------

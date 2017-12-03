@@ -106,7 +106,7 @@ for %F in (*.fg) do fg3 controls %F caricature southAsian color &gt; %FsouthAsia
 <p>That is all you need, but for some bash &amp; python to quick aggregate it into a CSV...</p>
 <p>Second, in Bash, this concats all cues per face (.fg file) into a txt per face:</p>
 <hr>
-<pre><code>for f in *.fg; do cat ${s}*.txt &gt; ${s:0:${#s}-3}_all.txt; done</code></pre><hr>
+<pre><code>for f in *.fg; do cat ${f}*.txt &gt; ${f:0:${#f}-3}_all.txt; done</code></pre><hr>
 <p>Third, with all of the txts per fg file in one folder, run this python code to reorganize and clean each, then make a csv out of the txts:</p>
 <hr>
 <pre><code>import numpy
